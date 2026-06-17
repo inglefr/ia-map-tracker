@@ -432,9 +432,10 @@ function renderUpdatedLabel(){
 }
 
 async function loadData(){
+  const bust = Date.now();
   const [tRes, pRes] = await Promise.all([
-    fetch('data/tickers.json'),
-    fetch('data/prices.json')
+    fetch('data/tickers.json?v=' + bust, { cache: 'no-store' }),
+    fetch('data/prices.json?v=' + bust, { cache: 'no-store' })
   ]);
   tickersData = await tRes.json();
   pricesData = await pRes.json();
