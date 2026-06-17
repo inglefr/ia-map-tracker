@@ -1,0 +1,11 @@
+{
+  "name": "Chaîne de valeur IA",
+  "short_name": "IA Map",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#11151c",
+  "theme_color": "#11151c",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
