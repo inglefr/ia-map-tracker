@@ -2,398 +2,570 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
 <title>Chaîne de valeur IA</title>
 
-<!-- Ajout à l'écran d'accueil iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <meta name="apple-mobile-web-app-title" content="IA Map" />
 <link rel="apple-touch-icon" href="icon-180.png" />
 <link rel="manifest" href="manifest.json" />
-<meta name="theme-color" content="#11151c" />
+<meta name="theme-color" content="#f7f8fa" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --bg-deep:#11151c;
-    --bg-panel:#171c25;
-    --bg-card:#1b212b;
-    --line-grid:#242b36;
-    --text-primary:#e8ebef;
-    --text-muted:#8b94a3;
-    --accent-amber:#d98e3f;
-    --positive:#5fae7a;
-    --negative:#c2584f;
-    --radius:10px;
+    --bg:#f7f8fa;
+    --ink:#1c2026;
+    --ink-soft:#5b6270;
+    --line:#9aa1ab;
+
+    --green-fill:#cdf2dd;
+    --green-border:#52b788;
+    --red-fill:#fbdadb;
+    --red-border:#e0625f;
+    --red-text:#c0392b;
+    --yellow-fill:#fdf3cf;
+    --yellow-border:#dcb53c;
+    --blue-fill:#dbe7f9;
+    --blue-border:#7fa6d9;
+    --violet-fill:#e8e1f7;
+    --violet-border:#a890d9;
+
+    --up:#1f9254;
+    --down:#c0392b;
+    --pea:#b8860b;
   }
 
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
+  html,body{margin:0;padding:0;height:100%;}
   body{
-    background:var(--bg-deep);
-    background-image:
-      linear-gradient(var(--line-grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line-grid) 1px, transparent 1px);
-    background-size:22px 22px;
-    color:var(--text-primary);
-    font-family:'IBM Plex Sans', sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
     -webkit-font-smoothing:antialiased;
-    padding-bottom:60px;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    *{transition:none !important; animation:none !important;}
+    overscroll-behavior:none;
   }
 
   header{
-    position:sticky;
-    top:0;
-    z-index:10;
-    background:rgba(17,21,28,0.92);
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:20;
+    background:rgba(247,248,250,0.95);
     backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line-grid);
-    padding:env(safe-area-inset-top,0) 18px 14px 18px;
-    padding-top:max(env(safe-area-inset-top,0px), 18px);
-  }
-
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--accent-amber);
-    margin:0 0 4px 0;
+    border-bottom:1px solid #e3e5e9;
+    padding:max(env(safe-area-inset-top,0px), 16px) 16px 10px 16px;
   }
 
   h1{
-    font-size:21px;
+    font-size:17px;
     font-weight:700;
-    margin:0 0 10px 0;
-    letter-spacing:-0.01em;
+    margin:0 0 8px 0;
   }
 
-  .meta-row{
+  .top-row{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:10px;
+    gap:8px;
   }
 
   .updated{
     font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    color:var(--text-muted);
+    font-size:10.5px;
+    color:var(--ink-soft);
+    line-height:1.4;
   }
 
   .toggle-btn{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:0.02em;
-    background:var(--bg-panel);
-    color:var(--text-primary);
-    border:1px solid var(--line-grid);
+    font-size:12.5px;
+    font-weight:600;
+    background:white;
+    color:var(--ink);
+    border:1.5px solid var(--violet-border);
     border-radius:20px;
-    padding:8px 14px;
-    cursor:pointer;
-    transition:border-color 0.15s ease, transform 0.1s ease;
+    padding:7px 14px;
+    white-space:nowrap;
   }
-  .toggle-btn:active{transform:scale(0.97);}
-  .toggle-btn.active{
-    border-color:var(--accent-amber);
-    color:var(--accent-amber);
-  }
+  .toggle-btn.active{ background:var(--violet-fill); }
 
-  main{padding:18px;}
-
-  .stage{
-    margin-bottom:28px;
-    position:relative;
-  }
-
-  .stage + .stage::before{
-    content:"";
-    position:absolute;
-    top:-16px;
-    left:14px;
-    width:1px;
-    height:14px;
-    background:repeating-linear-gradient(to bottom, var(--accent-amber) 0 3px, transparent 3px 6px);
-  }
-
-  .stage-header{
+  .update-row{
     display:flex;
-    align-items:baseline;
-    gap:8px;
-    margin-bottom:10px;
+    gap:6px;
+    margin-top:9px;
+  }
+  .update-btn{
+    flex:1;
+    font-size:11px;
+    font-weight:600;
+    border:1px solid #d3d7dd;
+    background:white;
+    color:var(--ink);
+    border-radius:8px;
+    padding:7px 4px;
+  }
+  .update-btn:active{ background:#eef0f3; }
+  .update-btn.loading{ color:var(--ink-soft); }
+
+  .toast{
+    position:fixed;
+    bottom:18px; left:50%;
+    transform:translateX(-50%);
+    background:var(--ink);
+    color:white;
+    font-size:12.5px;
+    padding:9px 16px;
+    border-radius:20px;
+    z-index:50;
+    opacity:0;
+    transition:opacity 0.2s ease;
+    pointer-events:none;
+  }
+  .toast.show{ opacity:1; }
+
+  #viewport{
+    position:fixed;
+    top:0; left:0; right:0; bottom:0;
+    overflow:hidden;
+    touch-action:none;
   }
 
-  .stage-index{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    color:var(--accent-amber);
-    border:1px solid var(--accent-amber);
-    border-radius:50%;
-    width:20px;
-    height:20px;
+  #canvas{
+    position:absolute;
+    top:0; left:0;
+    transform-origin:0 0;
+    padding:170px 40px 60px 40px;
+    will-change:transform;
+  }
+
+  .chain{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .row{
     display:flex;
     align-items:center;
+    gap:0;
+  }
+
+  .node{
+    width:300px;
+    border-radius:16px;
+    padding:14px 18px;
+    border:2px solid var(--line);
+    text-align:center;
+    font-weight:700;
+    font-size:14px;
+  }
+  .node.ellipse{
+    border-radius:999px;
+    width:190px;
+    padding:18px 10px;
+    background:var(--green-fill);
+    border-color:var(--green-border);
+  }
+  .node.bottleneck, .node.bottleneck-absolute, .node.bottleneck-major{
+    background:var(--red-fill);
+    border-color:var(--red-border);
+  }
+  .node.standard{
+    background:var(--yellow-fill);
+    border-color:var(--yellow-border);
+  }
+  .node.downstream{
+    background:var(--green-fill);
+    border-color:var(--green-border);
+  }
+  .node.branch{
+    background:var(--violet-fill);
+    border-color:var(--violet-border);
+  }
+
+  .role-tag{ color:var(--red-text); font-weight:700; }
+  .role-tag.standard-tag{ color:var(--ink-soft); font-weight:500; }
+  .role-tag.downstream-tag{ color:#1f7a4d; font-weight:600; }
+
+  .connector{
+    display:flex;
     justify-content:center;
+    position:relative;
+    height:52px;
+    width:300px;
+  }
+  .connector .line{
+    width:2px;
+    background:var(--line);
+    height:100%;
+  }
+  .connector .arrowhead{
+    position:absolute;
+    bottom:0;
+    width:0; height:0;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    border-top:8px solid var(--line);
+  }
+  .connector .label{
+    position:absolute;
+    left:54%;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:12px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+    background:var(--bg);
+    padding:0 6px;
+  }
+
+  .dashes{
+    width:46px;
+    height:2px;
+    background-image:repeating-linear-gradient(to right, var(--line) 0 6px, transparent 6px 12px);
     flex-shrink:0;
   }
 
-  .stage-title{
-    font-size:14px;
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    color:var(--text-primary);
+  .panel{
+    width:280px;
+    border-radius:12px;
+    border:2px solid var(--blue-border);
+    background:var(--blue-fill);
+    padding:10px 14px;
+    flex-shrink:0;
   }
-
-  .stage-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:8px;
-  }
-  @media (min-width:640px){
-    .stage-grid{grid-template-columns:repeat(2,1fr);}
-  }
-  @media (min-width:980px){
-    .stage-grid{grid-template-columns:repeat(3,1fr);}
-  }
-
-  .card{
-    background:var(--bg-card);
-    border:1px solid var(--line-grid);
-    border-left:3px solid var(--line-grid);
-    border-radius:var(--radius);
-    padding:11px 13px;
-    transition:transform 0.12s ease, border-color 0.12s ease;
-  }
-  .card:hover{transform:translateY(-1px);}
-
-  .card.bottleneck{border-left-color:var(--accent-amber);}
-  .card.second_order{border-left-style:dashed;}
-  .card.downstream{border-left-color:var(--positive);}
-
-  .card-top{
+  .panel-line{
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
-    gap:8px;
-  }
-
-  .card-name{
-    font-size:13.5px;
-    font-weight:600;
-    line-height:1.25;
-  }
-
-  .card-tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:9.5px;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    color:var(--text-muted);
-    white-space:nowrap;
-    margin-top:2px;
-  }
-
-  .card-note{
-    font-size:11px;
-    color:var(--text-muted);
-    margin-top:4px;
-    line-height:1.35;
-  }
-
-  .card-quote{
-    display:flex;
     align-items:baseline;
-    justify-content:space-between;
-    margin-top:8px;
+    gap:8px;
+    font-size:12px;
+    padding:3px 0;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+  }
+  .panel-line:last-child{ border-bottom:none; }
+
+  .pname{ font-weight:600; }
+  .pcountry{ font-style:italic; color:var(--ink-soft); font-size:11px; }
+  .pnote{ color:var(--ink-soft); font-size:11px; }
+  .ppea{
     font-family:'IBM Plex Mono', monospace;
+    font-size:8.5px;
+    color:var(--pea);
+    border:1px solid var(--pea);
+    border-radius:4px;
+    padding:0 3px;
+    margin-left:4px;
   }
 
-  .card-price{
-    font-size:13px;
-    color:var(--text-primary);
-  }
-
-  .card-change{
-    font-size:13px;
-    font-weight:600;
-    padding:2px 7px;
-    border-radius:6px;
-  }
-  .card-change.up{color:var(--positive); background:rgba(95,174,122,0.12);}
-  .card-change.down{color:var(--negative); background:rgba(194,88,79,0.12);}
-  .card-change.flat{color:var(--text-muted);}
-
-  .unlisted{
+  .pquote{
+    font-family:'IBM Plex Mono', monospace;
     font-size:11.5px;
-    font-style:italic;
-    color:var(--text-muted);
-    margin-top:8px;
+    text-align:right;
+    white-space:nowrap;
+  }
+  .pquote.up{ color:var(--up); }
+  .pquote.down{ color:var(--down); }
+  .pquote.unlisted{ font-style:italic; color:var(--ink-soft); font-size:10.5px; }
+
+  .second-order{
+    margin-top:6px;
+    padding-top:6px;
+    border-top:1px dashed var(--blue-border);
+  }
+  .second-order .panel-line{ opacity:0.75; }
+
+  .extra-block{
+    margin-top:4px;
   }
 
-  #level2-zone{display:none;}
-  #level2-zone.visible{display:block;}
-
-  .section-divider{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--accent-amber);
+  .section-title{
+    font-size:13px;
+    font-weight:700;
+    color:var(--ink-soft);
     text-align:center;
-    margin:8px 0 22px 0;
-    display:flex;
-    align-items:center;
-    gap:10px;
+    margin:36px 0 18px 0;
+    letter-spacing:0.02em;
   }
-  .section-divider::before, .section-divider::after{
-    content:"";
-    flex:1;
-    height:1px;
-    background:var(--line-grid);
-  }
+
+  #branches-zone{ display:none; }
+  #branches-zone.visible{ display:block; }
 </style>
 </head>
 <body>
 
 <header>
-  <p class="eyebrow">Chaîne de valeur</p>
-  <h1>Acteurs de l'IA</h1>
-  <div class="meta-row">
+  <h1>Chaîne de valeur de l'IA</h1>
+  <div class="top-row">
     <span class="updated" id="updated-label">Chargement…</span>
     <button class="toggle-btn" id="toggle-level2">+ Niveau 2</button>
   </div>
+  <div class="update-row">
+    <button class="update-btn" id="btn-update-l1">Màj niveau 1</button>
+    <button class="update-btn" id="btn-update-l2">Màj niveau 2</button>
+    <button class="update-btn" id="btn-update-all">Màj tout</button>
+  </div>
 </header>
 
-<main>
-  <div id="level1-zone"></div>
-  <div id="level2-zone">
-    <p class="section-divider">Élargissement PEA</p>
-    <div id="level2-stages"></div>
+<div id="viewport">
+  <div id="canvas">
+    <div class="chain" id="chain"></div>
+    <div id="branches-zone">
+      <p class="section-title">— Écosystème élargi IA —</p>
+      <div class="chain" id="branches"></div>
+    </div>
   </div>
-</main>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script>
-const STAGE_LABELS = {
-  design: "Conception & design",
-  architecture: "Architectures",
-  manufacturing: "Fabrication",
-  memory_assembly: "Mémoire & assemblage",
-  testing: "Test & intégration",
-  infrastructure: "Infrastructure & énergie",
-  downstream: "Cloud & services IA"
-};
-const STAGE_ORDER = ["design","architecture","manufacturing","memory_assembly","testing","infrastructure","downstream"];
+// ⚠️ Remplace par l'URL de TON Worker Cloudflare et la clé partagée choisie
+const WORKER_URL = "https://REMPLACE-MOI.workers.dev";
+const SHARED_KEY = "REMPLACE-MOI";
 
-const STAGE2_LABELS = {
-  semi_conducteurs: "Semi-conducteurs",
-  photonique: "Photonique",
-  fabless: "Fabless",
-  equipement: "Équipement",
-  logiciel: "Logiciel",
-  cloud: "Cloud",
-  defense: "Défense",
-  etf: "ETF PEA"
+const ROLE_LABELS = {
+  "bottleneck": "GOULOT",
+  "bottleneck-absolute": "GOULOT ABSOLU",
+  "bottleneck-major": "GOULOT MAJEUR",
+  "standard": "étape standard",
+  "downstream": "aval"
 };
-const STAGE2_ORDER = ["semi_conducteurs","photonique","fabless","equipement","logiciel","cloud","defense","etf"];
 
-const ROLE_TAGS = {
-  bottleneck: "Goulot d'étranglement",
-  second_order: "Fournisseur 2nd rang",
-  downstream: "Aval",
-  standard: ""
-};
+let tickersData = null;
+let pricesData = null;
+let level2Visible = false;
 
 function fmtUpdated(iso){
-  if(!iso) return "Pas encore mis à jour";
+  if(!iso) return "jamais";
   const d = new Date(iso);
-  return "Mis à jour le " + d.toLocaleDateString('fr-FR', {day:'2-digit', month:'2-digit'}) + " à " + d.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+  return d.toLocaleDateString('fr-FR', {day:'2-digit', month:'2-digit'}) + " à " + d.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
 }
 
-function quoteBlock(quote){
-  if(!quote || !quote.available){
-    return '<p class="unlisted">Non cotée</p>';
-  }
-  const sign = quote.changePct > 0 ? "+" : "";
-  const cls = quote.changePct > 0.05 ? "up" : (quote.changePct < -0.05 ? "down" : "flat");
-  return `<div class="card-quote">
-    <span class="card-price">${quote.price} ${quote.currency || ''}</span>
-    <span class="card-change ${cls}">${sign}${quote.changePct}%</span>
+function quoteHTML(id){
+  const q = pricesData && pricesData.quotes ? pricesData.quotes[id] : null;
+  if(!q || !q.available) return '<span class="pquote unlisted">non cotée</span>';
+  const sign = q.changePct > 0 ? "+" : "";
+  const cls = q.changePct > 0.05 ? "up" : (q.changePct < -0.05 ? "down" : "");
+  return `<span class="pquote ${cls}">${q.price} ${q.currency || ''} (${sign}${q.changePct}%)</span>`;
+}
+
+function companyLine(c){
+  return `<div class="panel-line">
+    <span>
+      <span class="pname">${c.name}</span>
+      ${c.country ? `<span class="pcountry"> ${c.country}</span>` : ""}
+      ${c.note ? `<span class="pnote"> — ${c.note}</span>` : ""}
+      ${c.pea ? `<span class="ppea">PEA</span>` : ""}
+    </span>
+    ${quoteHTML(c.id)}
   </div>`;
 }
 
-function card(entry, quotes){
-  const roleClass = entry.role || "";
-  const tag = entry.role ? (ROLE_TAGS[entry.role] || "") : "";
-  return `<div class="card ${roleClass}">
-    <div class="card-top">
-      <span class="card-name">${entry.name}</span>
-      ${tag ? `<span class="card-tag">${tag}</span>` : ""}
-    </div>
-    ${entry.note ? `<p class="card-note">${entry.note}</p>` : ""}
-    ${quoteBlock(quotes[entry.id])}
+function panelHTML(node){
+  const companies = node.companies || [];
+  const extra = (level2Visible && node.extra) ? node.extra : [];
+  const secondOrder = node.secondOrder || [];
+  return `<div class="panel">
+    ${companies.map(companyLine).join("")}
+    ${extra.length ? `<div class="extra-block">${extra.map(companyLine).join("")}</div>` : ""}
+    ${secondOrder.length ? `<div class="second-order">${secondOrder.map(companyLine).join("")}</div>` : ""}
   </div>`;
 }
 
-function renderStages(entries, quotes, order, labels, container){
-  container.innerHTML = "";
-  order.forEach((stageKey, idx) => {
-    const stageEntries = entries.filter(e => e.stage === stageKey);
-    if(stageEntries.length === 0) return;
-    const section = document.createElement("div");
-    section.className = "stage";
-    section.innerHTML = `
-      <div class="stage-header">
-        <span class="stage-index">${idx+1}</span>
-        <span class="stage-title">${labels[stageKey]}</span>
-      </div>
-      <div class="stage-grid">
-        ${stageEntries.map(e => card(e, quotes)).join("")}
-      </div>
-    `;
-    container.appendChild(section);
+function ellipseRow(node){
+  return `<div class="row"><div class="node ellipse">${node.name}</div></div>`;
+}
+
+function nodeRow(node){
+  const roleLabel = ROLE_LABELS[node.role] || "";
+  const tagClass = node.role === "standard" ? "standard-tag" : (node.role === "downstream" ? "downstream-tag" : "");
+  return `<div class="row">
+    <div class="node ${node.role}">${node.name}${roleLabel ? ` — <span class="role-tag ${tagClass}">${roleLabel}</span>` : ""}</div>
+    <div class="dashes"></div>
+    ${panelHTML(node)}
+  </div>`;
+}
+
+function connectorRow(label){
+  return `<div class="connector">
+    <div class="line"></div>
+    <div class="arrowhead"></div>
+    ${label ? `<span class="label">${label}</span>` : ""}
+  </div>`;
+}
+
+function renderChain(){
+  const container = document.getElementById('chain');
+  let html = "";
+  const chain = tickersData.chain;
+  chain.forEach((node, idx) => {
+    html += node.type === "ellipse" ? ellipseRow(node) : nodeRow(node);
+    const isLast = idx === chain.length - 1;
+    if(!isLast){
+      html += connectorRow(node.edgeLabelAfter);
+    }
   });
+  container.innerHTML = html;
 }
 
-async function init(){
-  try{
-    const [tickersRes, pricesRes] = await Promise.all([
-      fetch('data/tickers.json'),
-      fetch('data/prices.json')
-    ]);
-    const tickers = await tickersRes.json();
-    const pricesData = await pricesRes.json();
-    const quotes = pricesData.quotes || {};
+function renderBranches(){
+  const container = document.getElementById('branches');
+  let html = "";
+  tickersData.branches.forEach((branch) => {
+    html += `<div class="row">
+      <div class="node branch">${branch.name}</div>
+      <div class="dashes"></div>
+      <div class="panel">${branch.companies.map(companyLine).join("")}</div>
+    </div>`;
+    html += `<div style="height:18px"></div>`;
+  });
+  container.innerHTML = html;
+}
 
-    document.getElementById('updated-label').textContent = fmtUpdated(pricesData.updatedAt);
+function renderUpdatedLabel(){
+  document.getElementById('updated-label').textContent =
+    "Niv.1 : " + fmtUpdated(pricesData.updatedAtLevel1) + " · Niv.2 : " + fmtUpdated(pricesData.updatedAtLevel2);
+}
 
-    const level1 = tickers.filter(t => t.level === 1);
-    const level2 = tickers.filter(t => t.level === 2);
-
-    renderStages(level1, quotes, STAGE_ORDER, STAGE_LABELS, document.getElementById('level1-zone'));
-    renderStages(level2, quotes, STAGE2_ORDER, STAGE2_LABELS, document.getElementById('level2-stages'));
-  }catch(err){
-    document.getElementById('level1-zone').innerHTML = '<p class="unlisted">Erreur de chargement des données : ' + err.message + '</p>';
-  }
+async function loadData(){
+  const [tRes, pRes] = await Promise.all([
+    fetch('data/tickers.json'),
+    fetch('data/prices.json')
+  ]);
+  tickersData = await tRes.json();
+  pricesData = await pRes.json();
+  renderUpdatedLabel();
+  renderChain();
+  renderBranches();
 }
 
 document.getElementById('toggle-level2').addEventListener('click', (e) => {
-  const zone = document.getElementById('level2-zone');
-  const btn = e.currentTarget;
-  const isVisible = zone.classList.toggle('visible');
-  btn.classList.toggle('active', isVisible);
-  btn.textContent = isVisible ? "– Niveau 2" : "+ Niveau 2";
+  level2Visible = !level2Visible;
+  e.currentTarget.classList.toggle('active', level2Visible);
+  e.currentTarget.textContent = level2Visible ? "– Niveau 2" : "+ Niveau 2";
+  document.getElementById('branches-zone').classList.toggle('visible', level2Visible);
+  renderChain();
 });
 
-init();
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+async function triggerUpdate(scope, btn){
+  const original = btn.textContent;
+  btn.textContent = "…";
+  btn.classList.add('loading');
+  btn.disabled = true;
+  try{
+    const res = await fetch(`${WORKER_URL}/?scope=${scope}&key=${encodeURIComponent(SHARED_KEY)}`);
+    const data = await res.json();
+    if(data.ok){
+      showToast("Mise à jour lancée — actualise dans ~1 minute");
+    }else{
+      showToast("Erreur : " + (data.error || "inconnue"));
+    }
+  }catch(err){
+    showToast("Échec de connexion au relais");
+  }finally{
+    btn.textContent = original;
+    btn.classList.remove('loading');
+    btn.disabled = false;
+  }
+}
+
+document.getElementById('btn-update-l1').addEventListener('click', (e) => triggerUpdate('level1', e.currentTarget));
+document.getElementById('btn-update-l2').addEventListener('click', (e) => triggerUpdate('level2', e.currentTarget));
+document.getElementById('btn-update-all').addEventListener('click', (e) => triggerUpdate('all', e.currentTarget));
+
+// ---- Pan / zoom ----
+const viewport = document.getElementById('viewport');
+const canvas = document.getElementById('canvas');
+let scale = 1, panX = 0, panY = 0;
+const pointers = new Map();
+let lastPinchDist = null;
+
+function applyTransform(){
+  canvas.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+}
+
+function fitInitial(){
+  const naturalWidth = canvas.scrollWidth;
+  const vw = viewport.clientWidth;
+  const fitScale = Math.min(1, (vw * 0.94) / naturalWidth);
+  scale = fitScale > 0 ? fitScale : 0.5;
+  panX = (vw - naturalWidth * scale) / 2;
+  panY = 0;
+  applyTransform();
+}
+
+function clampScale(s){ return Math.min(2.5, Math.max(0.3, s)); }
+
+viewport.addEventListener('pointerdown', (e) => {
+  pointers.set(e.pointerId, {x:e.clientX, y:e.clientY});
+  viewport.setPointerCapture(e.pointerId);
+});
+
+viewport.addEventListener('pointermove', (e) => {
+  if(!pointers.has(e.pointerId)) return;
+  pointers.set(e.pointerId, {x:e.clientX, y:e.clientY});
+  const pts = [...pointers.values()];
+
+  if(pts.length === 1){
+    panX += e.movementX || 0;
+    panY += e.movementY || 0;
+    applyTransform();
+  } else if(pts.length === 2){
+    const [a,b] = pts;
+    const dist = Math.hypot(a.x-b.x, a.y-b.y);
+    const mid = {x:(a.x+b.x)/2, y:(a.y+b.y)/2};
+    if(lastPinchDist){
+      const factor = dist / lastPinchDist;
+      const newScale = clampScale(scale * factor);
+      const rect = viewport.getBoundingClientRect();
+      const mx = mid.x - rect.left;
+      const my = mid.y - rect.top;
+      panX = mx - ((mx - panX) * (newScale/scale));
+      panY = my - ((my - panY) * (newScale/scale));
+      scale = newScale;
+      applyTransform();
+    }
+    lastPinchDist = dist;
+  }
+});
+
+function clearPointer(e){
+  pointers.delete(e.pointerId);
+  if(pointers.size < 2){ lastPinchDist = null; }
+}
+viewport.addEventListener('pointerup', clearPointer);
+viewport.addEventListener('pointercancel', clearPointer);
+
+viewport.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const factor = e.deltaY < 0 ? 1.08 : 0.93;
+  const newScale = clampScale(scale * factor);
+  const rect = viewport.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  panX = mx - ((mx - panX) * (newScale/scale));
+  panY = my - ((my - panY) * (newScale/scale));
+  scale = newScale;
+  applyTransform();
+}, { passive:false });
+
+viewport.addEventListener('dblclick', () => { fitInitial(); });
+
+(async function init(){
+  await loadData();
+  requestAnimationFrame(() => { fitInitial(); });
+})();
 </script>
 </body>
 </html>
