@@ -3,6 +3,8 @@ import { writeFile, readFile } from "node:fs/promises";
 const TICKERS_PATH = new URL("../data/tickers.json", import.meta.url);
 const OUTPUT_PATH = new URL("../data/prices.json", import.meta.url);
 
+const scope = process.argv[2] || "all"; // "level1" | "level2" | "all"
+
 async function fetchQuote(symbol) {
   const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(
     symbol
@@ -19,10 +21,6 @@ async function fetchQuote(symbol) {
   if (!result) throw new Error("Pas de donnée renvoyée");
   const meta = result.meta;
 
-  // On ne se fie pas aux champs meta.previousClose / chartPreviousClose : sur cet
-  // endpoint ils référencent parfois la clôture d'avant TOUTE la période demandée
-  // (donc plusieurs jours en arrière), pas la veille. On reconstruit la variation
-  // à partir des deux dernières clôtures journalières réelles, ce qui est fiable.
   const closes = (result.indicators?.quote?.[0]?.close || []).filter(
     (c) => c != null
   );
@@ -41,13 +39,29 @@ async function fetchQuote(symbol) {
   };
 }
 
-async function main() {
-  const tickers = JSON.parse(await readFile(TICKERS_PATH, "utf-8"));
-  const results = {};
+function collectLevel1Entries(tickers) {
+  const out = [];
+  for (const node of tickers.chain) {
+    if (node.type === "ellipse") continue;
+    for (const c of node.companies || []) out.push(c);
+    for (const c of node.extra || []) out.push(c);
+    for (const c of node.secondOrder || []) out.push(c);
+  }
+  return out;
+}
+
+function collectLevel2Entries(tickers) {
+  const out = [];
+  for (const branch of tickers.branches) {
+    for (const c of branch.companies || []) out.push(c);
+  }
+  return out;
+}
+
+async function fetchForEntries(entries, results) {
   let ok = 0;
   let failed = 0;
-
-  for (const entry of tickers) {
+  for (const entry of entries) {
     if (!entry.ticker) {
       results[entry.id] = { available: false, reason: "non_cotee" };
       continue;
@@ -64,17 +78,44 @@ async function main() {
       };
       failed++;
     }
-    // petite pause pour ne pas surcharger l'API
     await new Promise((r) => setTimeout(r, 250));
   }
+  return { ok, failed };
+}
 
-  const output = {
-    updatedAt: new Date().toISOString(),
-    quotes: results,
-  };
+async function main() {
+  const tickers = JSON.parse(await readFile(TICKERS_PATH, "utf-8"));
 
-  await writeFile(OUTPUT_PATH, JSON.stringify(output, null, 2));
-  console.log(`Terminé : ${ok} cours récupérés, ${failed} échecs.`);
+  let existing = { updatedAtLevel1: null, updatedAtLevel2: null, quotes: {} };
+  try {
+    existing = JSON.parse(await readFile(OUTPUT_PATH, "utf-8"));
+    if (!existing.quotes) existing.quotes = {};
+  } catch {
+    // pas de fichier existant, on part de zéro
+  }
+
+  const now = new Date().toISOString();
+  let totalOk = 0;
+  let totalFailed = 0;
+
+  if (scope === "level1" || scope === "all") {
+    const entries = collectLevel1Entries(tickers);
+    const { ok, failed } = await fetchForEntries(entries, existing.quotes);
+    existing.updatedAtLevel1 = now;
+    totalOk += ok;
+    totalFailed += failed;
+  }
+
+  if (scope === "level2" || scope === "all") {
+    const entries = collectLevel2Entries(tickers);
+    const { ok, failed } = await fetchForEntries(entries, existing.quotes);
+    existing.updatedAtLevel2 = now;
+    totalOk += ok;
+    totalFailed += failed;
+  }
+
+  await writeFile(OUTPUT_PATH, JSON.stringify(existing, null, 2));
+  console.log(`Scope: ${scope} — Terminé : ${totalOk} cours récupérés, ${totalFailed} échecs.`);
 }
 
 main().catch((err) => {
