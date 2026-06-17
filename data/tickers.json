@@ -1,76 +1,299 @@
-[
-  { "id": "synopsys", "name": "Synopsys", "ticker": "SNPS", "level": 1, "stage": "design", "role": "bottleneck", "country": "US", "note": "EDA, ~31%" },
-  { "id": "cadence", "name": "Cadence", "ticker": "CDNS", "level": 1, "stage": "design", "role": "bottleneck", "country": "US", "note": "EDA, ~30%" },
-  { "id": "siemens_eda", "name": "Siemens (EDA)", "ticker": "SIE.DE", "level": 1, "stage": "design", "role": "bottleneck", "country": "DE", "pea": true, "note": "EDA via Siemens EDA, ~13%" },
-  { "id": "arm", "name": "Arm Holdings", "ticker": "ARM", "level": 1, "stage": "architecture", "role": "standard", "country": "UK/JP", "note": "~90% mobile + datacenter" },
-  { "id": "riscv", "name": "RISC-V", "ticker": null, "level": 1, "stage": "architecture", "role": "standard", "country": null, "note": "Standard ouvert, non cotée, ~25% pénétration" },
-  { "id": "nvidia", "name": "Nvidia", "ticker": "NVDA", "level": 1, "stage": "design", "role": "bottleneck", "country": "US", "note": "Fabless IA, 80-90%" },
-  { "id": "amd", "name": "AMD", "ticker": "AMD", "level": 1, "stage": "design", "role": "bottleneck", "country": "US", "note": "Fabless IA, 5-7%" },
+{
+  "chain": [
+    { "id": "start", "type": "ellipse", "name": "AMONT — Conception", "color": "green" },
 
-  { "id": "asml", "name": "ASML", "ticker": "ASML", "level": 1, "stage": "manufacturing", "role": "bottleneck", "country": "NL", "pea": true, "note": "Monopole EUV, 100%" },
-  { "id": "nikon", "name": "Nikon", "ticker": "7731.T", "level": 1, "stage": "manufacturing", "role": "standard", "country": "JP", "note": "DUV, ~5%" },
-  { "id": "canon", "name": "Canon", "ticker": "7751.T", "level": 1, "stage": "manufacturing", "role": "standard", "country": "JP", "note": "DUV, ~5%" },
-  { "id": "tsmc", "name": "TSMC", "ticker": "TSM", "level": 1, "stage": "manufacturing", "role": "bottleneck", "country": "TW", "note": "Fonderie avancée, ~70%" },
-  { "id": "samsung", "name": "Samsung Electronics", "ticker": "005930.KS", "level": 1, "stage": "manufacturing", "role": "bottleneck", "country": "KR", "note": "Fonderie ~7%, HBM ~22%" },
-  { "id": "intel", "name": "Intel", "ticker": "INTC", "level": 1, "stage": "manufacturing", "role": "bottleneck", "country": "US", "note": "Fonderie, ~6%" },
-  { "id": "carlzeiss", "name": "Carl Zeiss SMT", "ticker": null, "level": 1, "stage": "manufacturing", "role": "second_order", "country": "DE", "pea": true, "note": "Optique EUV — entreprise privée, non cotée" },
-  { "id": "trumpf", "name": "TRUMPF", "ticker": null, "level": 1, "stage": "manufacturing", "role": "second_order", "country": "DE", "pea": true, "note": "Lasers CO2 — entreprise privée, non cotée" },
-  { "id": "shinetsu", "name": "Shin-Etsu Chemical", "ticker": "4063.T", "level": 1, "stage": "manufacturing", "role": "second_order", "country": "JP", "note": "Wafers, part du ~54% Shin-Etsu/SUMCO" },
-  { "id": "sumco", "name": "SUMCO", "ticker": "3436.T", "level": 1, "stage": "manufacturing", "role": "second_order", "country": "JP", "note": "Wafers" },
-  { "id": "siltronic", "name": "Siltronic", "ticker": "WAF.DE", "level": 1, "stage": "manufacturing", "role": "second_order", "country": "DE", "pea": true, "note": "Wafers" },
-  { "id": "tok", "name": "Tokyo Ohka Kogyo (TOK)", "ticker": "4186.T", "level": 1, "stage": "manufacturing", "role": "second_order", "country": "JP", "note": "Photoresist, JSR/TOK >95%" },
-  { "id": "jsr", "name": "JSR Corporation", "ticker": null, "level": 1, "stage": "manufacturing", "role": "second_order", "country": "JP", "note": "Photoresist — rachetée par JIC en 2024, non cotée" },
+    {
+      "id": "eda", "name": "EDA / Conception logicielle", "role": "bottleneck",
+      "companies": [
+        { "id": "synopsys", "name": "Synopsys", "ticker": "SNPS", "country": "US", "note": "31%" },
+        { "id": "cadence", "name": "Cadence", "ticker": "CDNS", "country": "US", "note": "30%" },
+        { "id": "siemens_eda", "name": "Siemens EDA", "ticker": "SIE.DE", "country": "DE", "pea": true, "note": "13%" }
+      ],
+      "edgeLabelAfter": "outils EDA"
+    },
 
-  { "id": "skhynix", "name": "SK Hynix", "ticker": "000660.KS", "level": 1, "stage": "memory_assembly", "role": "bottleneck", "country": "KR", "note": "HBM, 57%" },
-  { "id": "micron", "name": "Micron", "ticker": "MU", "level": 1, "stage": "memory_assembly", "role": "bottleneck", "country": "US", "note": "HBM, 21%" },
-  { "id": "unimicron", "name": "Unimicron", "ticker": "3037.TW", "level": 1, "stage": "memory_assembly", "role": "second_order", "country": "TW", "note": "Substrats ABF, 22%" },
-  { "id": "ibiden", "name": "Ibiden", "ticker": "4062.T", "level": 1, "stage": "memory_assembly", "role": "second_order", "country": "JP", "note": "Substrats ABF" },
-  { "id": "shinko", "name": "Shinko Electric", "ticker": null, "level": 1, "stage": "memory_assembly", "role": "second_order", "country": "JP", "note": "Substrats ABF — rachetée par JIC en 2023, non cotée" },
+    {
+      "id": "ip_cores", "name": "IP cores / Architectures", "role": "standard",
+      "companies": [
+        { "id": "arm", "name": "Arm", "ticker": "ARM", "country": "UK-JP", "note": "~90% mobile+DC" },
+        { "id": "riscv", "name": "RISC-V", "ticker": null, "country": null, "note": "standard ouvert — ~25%" }
+      ],
+      "edgeLabelAfter": "design"
+    },
 
-  { "id": "advantest", "name": "Advantest", "ticker": "6857.T", "level": 1, "stage": "testing", "role": "bottleneck", "country": "JP", "note": "ATE testing" },
-  { "id": "technoprobe", "name": "Technoprobe", "ticker": "TPRO.MI", "level": 1, "stage": "testing", "role": "bottleneck", "country": "IT", "pea": true, "note": "Probe cards" },
-  { "id": "foxconn", "name": "Foxconn (Hon Hai)", "ticker": "2317.TW", "level": 1, "stage": "testing", "role": "standard", "country": "TW", "note": "ODM serveurs IA" },
-  { "id": "quanta", "name": "Quanta Computer", "ticker": "2382.TW", "level": 1, "stage": "testing", "role": "standard", "country": "TW", "note": "ODM serveurs IA" },
-  { "id": "wistron", "name": "Wistron", "ticker": "3231.TW", "level": 1, "stage": "testing", "role": "standard", "country": "TW", "note": "ODM serveurs IA, ~59% combiné" },
+    {
+      "id": "fabless", "name": "Fabless / Puces IA", "role": "bottleneck",
+      "companies": [
+        { "id": "nvidia", "name": "Nvidia", "ticker": "NVDA", "country": "US", "note": "80-90%" },
+        { "id": "amd", "name": "AMD", "ticker": "AMD", "country": "US", "note": "5-7%" },
+        { "id": "broadcom", "name": "Broadcom", "ticker": "AVGO", "country": "US", "note": "ASIC custom" },
+        { "id": "marvell", "name": "Marvell", "ticker": "MRVL", "country": "US", "note": "ASIC" },
+        { "id": "intel_design", "name": "Intel", "ticker": "INTC", "country": "US", "note": "design" }
+      ],
+      "extra": [
+        { "id": "qualcomm", "name": "Qualcomm", "ticker": "QCOM", "country": "US" },
+        { "id": "mpwr", "name": "Monolithic Power Systems", "ticker": "MPWR", "country": "US" }
+      ],
+      "edgeLabelAfter": "commande wafers"
+    },
 
-  { "id": "schneider", "name": "Schneider Electric", "ticker": "SU.PA", "level": 1, "stage": "infrastructure", "role": "bottleneck", "country": "FR", "pea": true, "note": "Électrique/cooling datacenters" },
-  { "id": "siemensenergy", "name": "Siemens Energy", "ticker": "ENR.DE", "level": 1, "stage": "infrastructure", "role": "bottleneck", "country": "DE", "pea": true, "note": "Infrastructure électrique" },
-  { "id": "infineon", "name": "Infineon", "ticker": "IFX.DE", "level": 1, "stage": "infrastructure", "role": "standard", "country": "DE", "pea": true, "note": "Semi-conducteurs de puissance" },
-  { "id": "asmi", "name": "ASM International", "ticker": "ASM.AS", "level": 1, "stage": "manufacturing", "role": "second_order", "country": "NL", "pea": true, "note": "Équipement ALD" },
-  { "id": "soitec", "name": "Soitec", "ticker": "SOI.PA", "level": 1, "stage": "manufacturing", "role": "second_order", "country": "FR", "pea": true, "note": "Substrats SOI" },
-  { "id": "airliquide", "name": "Air Liquide", "ticker": "AI.PA", "level": 1, "stage": "manufacturing", "role": "second_order", "country": "FR", "pea": true, "note": "Gaz industriels pour fonderies" },
-  { "id": "atands", "name": "AT&S", "ticker": "ATS.VI", "level": 1, "stage": "memory_assembly", "role": "second_order", "country": "AT", "pea": true, "note": "Substrats avancés" },
-  { "id": "besi", "name": "Besi (BE Semiconductor)", "ticker": "BESI.AS", "level": 1, "stage": "memory_assembly", "role": "bottleneck", "country": "NL", "pea": true, "note": "Hybrid bonding" },
+    {
+      "id": "euv", "name": "Lithographie EUV", "role": "bottleneck-absolute",
+      "companies": [
+        { "id": "asml", "name": "ASML", "ticker": "ASML", "country": "NL", "pea": true, "note": "100%" },
+        { "id": "nikon", "name": "Nikon", "ticker": "7731.T", "country": "JP", "note": "DUV ~5%" },
+        { "id": "canon", "name": "Canon", "ticker": "7751.T", "country": "JP", "note": "DUV ~5%" }
+      ],
+      "edgeLabelAfter": "équipe"
+    },
 
-  { "id": "amazon", "name": "Amazon (AWS)", "ticker": "AMZN", "level": 1, "stage": "downstream", "role": "downstream", "country": "US", "note": "Cloud/datacenter IA" },
-  { "id": "google", "name": "Google (Alphabet)", "ticker": "GOOGL", "level": 1, "stage": "downstream", "role": "downstream", "country": "US", "note": "Cloud/datacenter IA" },
-  { "id": "meta", "name": "Meta", "ticker": "META", "level": 1, "stage": "downstream", "role": "downstream", "country": "US", "note": "Cloud/datacenter IA" },
-  { "id": "microsoft", "name": "Microsoft", "ticker": "MSFT", "level": 1, "stage": "downstream", "role": "downstream", "country": "US", "note": "Cloud/datacenter IA" },
-  { "id": "oracle", "name": "Oracle", "ticker": "ORCL", "level": 1, "stage": "downstream", "role": "downstream", "country": "US", "note": "Cloud/datacenter IA" },
-  { "id": "coreweave", "name": "CoreWeave", "ticker": "CRWV", "level": 1, "stage": "downstream", "role": "downstream", "country": "US", "note": "Cloud GPU spécialisé IA" },
+    {
+      "id": "wfe", "name": "Équipement de fabrication (WFE)", "role": "bottleneck",
+      "companies": [
+        { "id": "asmi", "name": "ASM International", "ticker": "ASM.AS", "country": "NL", "pea": true, "note": "ALD" }
+      ],
+      "extra": [
+        { "id": "amat", "name": "Applied Materials", "ticker": "AMAT", "country": "US" },
+        { "id": "lrcx", "name": "Lam Research", "ticker": "LRCX", "country": "US" },
+        { "id": "klac", "name": "KLA", "ticker": "KLAC", "country": "US" },
+        { "id": "onto", "name": "Onto Innovation", "ticker": "ONTO", "country": "US" }
+      ],
+      "edgeLabelAfter": "équipe fonderies"
+    },
 
-  { "id": "melexis", "name": "Melexis", "ticker": "MELE.BR", "level": 2, "stage": "semi_conducteurs", "country": "BE", "pea": true, "note": "Capteurs semi-conducteurs" },
-  { "id": "aixtron", "name": "Aixtron", "ticker": "AIXA.DE", "level": 2, "stage": "semi_conducteurs", "country": "DE", "pea": true, "note": "Équipement MOCVD, ~90%" },
-  { "id": "lumibird", "name": "Lumibird", "ticker": "LBIRD.PA", "level": 2, "stage": "photonique", "country": "FR", "pea": true, "note": "Lasers" },
-  { "id": "sivers", "name": "Sivers Semiconductors", "ticker": "SIVE.ST", "level": 2, "stage": "photonique", "country": "SE", "pea": true, "note": "Photonique CPO" },
-  { "id": "kalray", "name": "Kalray", "ticker": "ALKAL.PA", "level": 2, "stage": "fabless", "country": "FR", "pea": true, "note": "DPU fabless" },
-  { "id": "2crsi", "name": "2CRSi", "ticker": "AL2SI.PA", "level": 2, "stage": "equipement", "country": "FR", "pea": true, "note": "Serveurs refroidissement liquide" },
-  { "id": "riber", "name": "Riber", "ticker": "ALRIB.PA", "level": 2, "stage": "equipement", "country": "FR", "pea": true, "note": "Équipement MBE" },
-  { "id": "exosens", "name": "Exosens", "ticker": "EXENS.PA", "level": 2, "stage": "equipement", "country": "FR", "pea": true, "note": "Électro-optique" },
-  { "id": "exail", "name": "Exail Technologies", "ticker": "EXA.PA", "level": 2, "stage": "equipement", "country": "FR", "pea": true, "note": "Drones/photonique" },
-  { "id": "sap", "name": "SAP", "ticker": "SAP.DE", "level": 2, "stage": "logiciel", "country": "DE", "pea": true, "note": "ERP IA" },
-  { "id": "dassault", "name": "Dassault Systèmes", "ticker": "DSY.PA", "level": 2, "stage": "logiciel", "country": "FR", "pea": true, "note": "Jumeaux numériques" },
-  { "id": "capgemini", "name": "Capgemini", "ticker": "CAP.PA", "level": 2, "stage": "logiciel", "country": "FR", "pea": true, "note": "Services IT IA" },
-  { "id": "hexagon", "name": "Hexagon AB", "ticker": "HEXAB.ST", "level": 2, "stage": "logiciel", "country": "SE", "pea": true, "note": "Logiciels industriels IA" },
-  { "id": "wolters", "name": "Wolters Kluwer", "ticker": "WKL.AS", "level": 2, "stage": "logiciel", "country": "NL", "pea": true, "note": "Information professionnelle IA" },
-  { "id": "ovhcloud", "name": "OVHcloud", "ticker": "OVH.PA", "level": 2, "stage": "cloud", "country": "FR", "pea": true, "note": "Cloud souverain" },
-  { "id": "thales", "name": "Thales", "ticker": "HO.PA", "level": 2, "stage": "defense", "country": "FR", "pea": true, "note": "Défense/IA souveraine" },
-  { "id": "rheinmetall", "name": "Rheinmetall", "ticker": "RHM.DE", "level": 2, "stage": "defense", "country": "DE", "pea": true, "note": "Défense IA" },
+    {
+      "id": "foundry", "name": "Fonderie avancée", "role": "bottleneck-major",
+      "companies": [
+        { "id": "tsmc", "name": "TSMC", "ticker": "TSM", "country": "TW", "note": "70%" },
+        { "id": "samsung_foundry", "name": "Samsung", "ticker": "005930.KS", "country": "KR", "note": "7%" },
+        { "id": "intel_foundry", "name": "Intel", "ticker": "INTC", "country": "US", "note": "6%" }
+      ],
+      "secondOrder": [
+        { "id": "carlzeiss", "name": "Carl Zeiss SMT", "ticker": null, "country": "DE", "pea": true, "note": "privée" },
+        { "id": "trumpf", "name": "TRUMPF", "ticker": null, "country": "DE", "pea": true, "note": "privée" },
+        { "id": "shinetsu", "name": "Shin-Etsu", "ticker": "4063.T", "country": "JP" },
+        { "id": "sumco", "name": "SUMCO", "ticker": "3436.T", "country": "JP" },
+        { "id": "siltronic", "name": "Siltronic", "ticker": "WAF.DE", "country": "DE", "pea": true },
+        { "id": "tok", "name": "TOK", "ticker": "4186.T", "country": "JP" },
+        { "id": "jsr", "name": "JSR", "ticker": null, "country": "JP", "note": "privée depuis 2024" }
+      ],
+      "extra": [
+        { "id": "globalfoundries", "name": "GlobalFoundries", "ticker": "GFS", "country": "US" },
+        { "id": "umc", "name": "UMC", "ticker": "UMC", "country": "TW" },
+        { "id": "stmicro", "name": "STMicroelectronics", "ticker": "STM.PA", "country": "FR", "pea": true }
+      ],
+      "edgeLabelAfter": "assemble"
+    },
 
-  { "id": "etf_pust", "name": "Amundi PEA Nasdaq-100 (PUST)", "ticker": "PUST.PA", "level": 2, "stage": "etf", "country": "FR", "pea": true, "note": "ETF synthétique" },
-  { "id": "etf_pe500", "name": "Amundi PEA S&P 500 (PE500)", "ticker": "PE500.PA", "level": 2, "stage": "etf", "country": "FR", "pea": true, "note": "ETF synthétique" },
-  { "id": "etf_ese", "name": "BNP Paribas Easy S&P 500 (ESE)", "ticker": "ESE.PA", "level": 2, "stage": "etf", "country": "FR", "pea": true, "note": "ETF synthétique, TER 0,12-0,14%" },
-  { "id": "etf_wpea", "name": "iShares MSCI World Swap PEA (WPEA)", "ticker": "WPEA.PA", "level": 2, "stage": "etf", "country": "IE", "pea": true, "note": "ETF synthétique" },
-  { "id": "etf_dcam", "name": "Amundi PEA Monde MSCI World (DCAM)", "ticker": "DCAM.PA", "level": 2, "stage": "etf", "country": "FR", "pea": true, "note": "ETF synthétique" },
-  { "id": "etf_tno", "name": "Amundi STOXX Europe 600 Technology (TNO)", "ticker": "TNO.PA", "level": 2, "stage": "etf", "country": "LU", "pea": true, "note": "ETF synthétique" }
-]
+    {
+      "id": "hbm", "name": "Mémoire HBM", "role": "bottleneck",
+      "companies": [
+        { "id": "skhynix", "name": "SK Hynix", "ticker": "000660.KS", "country": "KR", "note": "57%" },
+        { "id": "samsung_hbm", "name": "Samsung", "ticker": "005930.KS", "country": "KR", "note": "22%" },
+        { "id": "micron", "name": "Micron", "ticker": "MU", "country": "US", "note": "21%" }
+      ],
+      "extra": [
+        { "id": "wdc", "name": "Western Digital", "ticker": "WDC", "country": "US" },
+        { "id": "stx", "name": "Seagate", "ticker": "STX", "country": "IE", "pea": true }
+      ],
+      "edgeLabelAfter": "alimente packaging"
+    },
+
+    {
+      "id": "packaging", "name": "Packaging avancé", "role": "bottleneck",
+      "companies": [
+        { "id": "tsmc_cowos", "name": "TSMC (CoWoS)", "ticker": "TSM", "country": "TW", "note": "~70%" },
+        { "id": "besi", "name": "Besi", "ticker": "BESI.AS", "country": "NL", "pea": true, "note": "hybrid bonding" }
+      ],
+      "secondOrder": [
+        { "id": "unimicron", "name": "Unimicron", "ticker": "3037.TW", "country": "TW", "note": "22%" },
+        { "id": "ibiden", "name": "Ibiden", "ticker": "4062.T", "country": "JP" },
+        { "id": "shinko", "name": "Shinko Electric", "ticker": null, "country": "JP", "note": "privée depuis 2023" }
+      ],
+      "extra": [
+        { "id": "ase", "name": "ASE Technology", "ticker": "ASX", "country": "TW" },
+        { "id": "amkor", "name": "Amkor", "ticker": "AMKR", "country": "US" }
+      ],
+      "edgeLabelAfter": "intègre"
+    },
+
+    {
+      "id": "testing", "name": "Test ATE & Probe Cards", "role": "bottleneck",
+      "companies": [
+        { "id": "advantest", "name": "Advantest", "ticker": "6857.T", "country": "JP" },
+        { "id": "technoprobe", "name": "Technoprobe", "ticker": "TPRO.MI", "country": "IT", "pea": true }
+      ],
+      "edgeLabelAfter": "valide puces"
+    },
+
+    {
+      "id": "servers", "name": "Serveurs IA / ODM", "role": "standard",
+      "companies": [
+        { "id": "foxconn", "name": "Foxconn", "ticker": "2317.TW", "country": "TW", "note": "~59% combiné" },
+        { "id": "quanta", "name": "Quanta", "ticker": "2382.TW", "country": "TW" },
+        { "id": "wistron", "name": "Wistron", "ticker": "3231.TW", "country": "TW" }
+      ],
+      "extra": [
+        { "id": "hpe", "name": "HPE", "ticker": "HPE", "country": "US" },
+        { "id": "dell", "name": "Dell", "ticker": "DELL", "country": "US" },
+        { "id": "smci", "name": "Super Micro", "ticker": "SMCI", "country": "US" },
+        { "id": "ibm", "name": "IBM", "ticker": "IBM", "country": "US" },
+        { "id": "ntap", "name": "NetApp", "ticker": "NTAP", "country": "US" }
+      ],
+      "edgeLabelAfter": "intègre"
+    },
+
+    {
+      "id": "infra", "name": "Infrastructure électrique & cooling", "role": "bottleneck",
+      "companies": [
+        { "id": "schneider", "name": "Schneider Electric", "ticker": "SU.PA", "country": "FR", "pea": true },
+        { "id": "siemensenergy", "name": "Siemens Energy", "ticker": "ENR.DE", "country": "DE", "pea": true },
+        { "id": "infineon", "name": "Infineon", "ticker": "IFX.DE", "country": "DE", "pea": true }
+      ],
+      "extra": [
+        { "id": "eaton", "name": "Eaton", "ticker": "ETN", "country": "IE", "pea": true },
+        { "id": "nextera", "name": "NextEra Energy", "ticker": "NEE", "country": "US" },
+        { "id": "vistra", "name": "Vistra", "ticker": "VST", "country": "US" },
+        { "id": "cameco", "name": "Cameco", "ticker": "CCJ", "country": "CA" },
+        { "id": "liqtech", "name": "LiqTech", "ticker": "LIQT", "country": "US" }
+      ],
+      "edgeLabelAfter": "alimente"
+    },
+
+    {
+      "id": "cloud_dc", "name": "Cloud & Datacenters IA", "role": "downstream",
+      "companies": [
+        { "id": "amazon", "name": "Amazon (AWS)", "ticker": "AMZN", "country": "US" },
+        { "id": "google", "name": "Google", "ticker": "GOOGL", "country": "US" },
+        { "id": "meta", "name": "Meta", "ticker": "META", "country": "US" },
+        { "id": "microsoft", "name": "Microsoft", "ticker": "MSFT", "country": "US" },
+        { "id": "oracle", "name": "Oracle", "ticker": "ORCL", "country": "US" },
+        { "id": "coreweave", "name": "CoreWeave", "ticker": "CRWV", "country": "US" }
+      ],
+      "extra": [
+        { "id": "sap", "name": "SAP", "ticker": "SAP.DE", "country": "DE", "pea": true },
+        { "id": "gitlab", "name": "GitLab", "ticker": "GTLB", "country": "US" },
+        { "id": "snowflake", "name": "Snowflake", "ticker": "SNOW", "country": "US" }
+      ],
+      "edgeLabelAfter": null
+    },
+
+    { "id": "end", "type": "ellipse", "name": "AVAL — Services & inférence IA", "color": "green" }
+  ],
+
+  "branches": [
+    {
+      "id": "reseaux", "name": "Réseaux & interconnexion",
+      "companies": [
+        { "id": "cisco", "name": "Cisco", "ticker": "CSCO", "country": "US" },
+        { "id": "arista", "name": "Arista Networks", "ticker": "ANET", "country": "US" },
+        { "id": "infinera", "name": "Infinera", "ticker": "INFN", "country": "US" },
+        { "id": "ciena", "name": "Ciena", "ticker": "CIEN", "country": "US" }
+      ]
+    },
+    {
+      "id": "datacenters_colo", "name": "Data centers & colocation",
+      "companies": [
+        { "id": "equinix", "name": "Equinix", "ticker": "EQIX", "country": "US" },
+        { "id": "digitalrealty", "name": "Digital Realty", "ticker": "DLR", "country": "US" },
+        { "id": "cyrusone", "name": "CyrusOne", "ticker": null, "country": "US", "note": "rachetée KKR/GIP 2022, non cotée" },
+        { "id": "ironmountain", "name": "Iron Mountain", "ticker": "IRM", "country": "US" },
+        { "id": "vertiv", "name": "Vertiv", "ticker": "VRT", "country": "US" }
+      ]
+    },
+    {
+      "id": "mlops_llmops", "name": "MLOps / LLMOps",
+      "companies": [
+        { "id": "c3ai", "name": "C3.ai", "ticker": "AI", "country": "US" },
+        { "id": "bigbearai", "name": "BigBear.ai", "ticker": "BBAI", "country": "US" },
+        { "id": "palantir", "name": "Palantir", "ticker": "PLTR", "country": "US" },
+        { "id": "soundhound", "name": "SoundHound AI", "ticker": "SOUN", "country": "US" },
+        { "id": "apple", "name": "Apple", "ticker": "AAPL", "country": "US" }
+      ]
+    },
+    {
+      "id": "data_bases", "name": "Bases de données & data",
+      "companies": [
+        { "id": "mongodb", "name": "MongoDB", "ticker": "MDB", "country": "US" },
+        { "id": "elastic", "name": "Elastic", "ticker": "ESTC", "country": "NL", "pea": true },
+        { "id": "datadog", "name": "Datadog", "ticker": "DDOG", "country": "US" },
+        { "id": "splunk", "name": "Splunk", "ticker": null, "country": "US", "note": "rachetée par Cisco 2024, non cotée" },
+        { "id": "veeva", "name": "Veeva Systems", "ticker": "VEEV", "country": "US" }
+      ]
+    },
+    {
+      "id": "cybersecurite", "name": "Cybersécurité IA",
+      "companies": [
+        { "id": "crowdstrike", "name": "CrowdStrike", "ticker": "CRWD", "country": "US" },
+        { "id": "paloalto", "name": "Palo Alto Networks", "ticker": "PANW", "country": "US" },
+        { "id": "sentinelone", "name": "SentinelOne", "ticker": "S", "country": "US" },
+        { "id": "zscaler", "name": "Zscaler", "ticker": "ZS", "country": "US" },
+        { "id": "fortinet", "name": "Fortinet", "ticker": "FTNT", "country": "US" }
+      ]
+    },
+    {
+      "id": "ia_sante", "name": "IA santé / drug discovery",
+      "companies": [
+        { "id": "intuitivesurgical", "name": "Intuitive Surgical", "ticker": "ISRG", "country": "US" },
+        { "id": "recursion", "name": "Recursion Pharmaceuticals", "ticker": "RXRX", "country": "US" },
+        { "id": "schrodinger", "name": "Schrödinger", "ticker": "SDGR", "country": "US" },
+        { "id": "novocure", "name": "NovoCure", "ticker": "NVCR", "country": "JE" },
+        { "id": "illumina", "name": "Illumina", "ticker": "ILMN", "country": "US" },
+        { "id": "exscientia", "name": "Exscientia", "ticker": null, "country": "UK", "note": "fusionnée avec Recursion en 2024, non cotée" }
+      ]
+    },
+    {
+      "id": "ia_auto", "name": "IA automobile / ADAS",
+      "companies": [
+        { "id": "tesla", "name": "Tesla", "ticker": "TSLA", "country": "US" },
+        { "id": "mobileye", "name": "Mobileye", "ticker": "MBLY", "country": "IL" },
+        { "id": "luminar", "name": "Luminar", "ticker": "LAZR", "country": "US" },
+        { "id": "ouster", "name": "Ouster", "ticker": "OUST", "country": "US" }
+      ]
+    },
+    {
+      "id": "robotique", "name": "Robotique industrielle IA",
+      "companies": [
+        { "id": "fanuc", "name": "Fanuc", "ticker": "FANUY", "country": "JP" },
+        { "id": "abb", "name": "ABB", "ticker": "ABBNY", "country": "CH" },
+        { "id": "rockwell", "name": "Rockwell Automation", "ticker": "ROK", "country": "US" },
+        { "id": "irobot", "name": "iRobot", "ticker": "IRBT", "country": "US" },
+        { "id": "teradyne", "name": "Teradyne", "ticker": "TER", "country": "US" }
+      ]
+    },
+    {
+      "id": "ia_fintech", "name": "IA fintech",
+      "companies": [
+        { "id": "coinbase", "name": "Coinbase", "ticker": "COIN", "country": "US" },
+        { "id": "robinhood", "name": "Robinhood", "ticker": "HOOD", "country": "US" },
+        { "id": "msci", "name": "MSCI", "ticker": "MSCI", "country": "US" },
+        { "id": "ice", "name": "ICE", "ticker": "ICE", "country": "US" },
+        { "id": "nasdaq", "name": "Nasdaq Inc.", "ticker": "NDAQ", "country": "US" },
+        { "id": "visa", "name": "Visa", "ticker": "V", "country": "US" }
+      ]
+    },
+    {
+      "id": "ia_defense", "name": "IA défense & surveillance",
+      "companies": [
+        { "id": "lockheed", "name": "Lockheed Martin", "ticker": "LMT", "country": "US" },
+        { "id": "northrop", "name": "Northrop Grumman", "ticker": "NOC", "country": "US" },
+        { "id": "leidos", "name": "Leidos", "ticker": "LDOS", "country": "US" },
+        { "id": "boozallen", "name": "Booz Allen Hamilton", "ticker": "BAH", "country": "US" }
+      ]
+    },
+    {
+      "id": "applications_verticales", "name": "Applications IA verticales",
+      "companies": [
+        { "id": "salesforce", "name": "Salesforce", "ticker": "CRM", "country": "US" },
+        { "id": "servicenow", "name": "ServiceNow", "ticker": "NOW", "country": "US" },
+        { "id": "workday", "name": "Workday", "ticker": "WDAY", "country": "US" },
+        { "id": "adobe", "name": "Adobe", "ticker": "ADBE", "country": "US" },
+        { "id": "intuit", "name": "Intuit", "ticker": "INTU", "country": "US" },
+        { "id": "verint", "name": "Verint", "ticker": "VRNT", "country": "US" },
+        { "id": "nice", "name": "NICE", "ticker": "NICE", "country": "IL" },
+        { "id": "taketwo", "name": "Take-Two Interactive", "ticker": "TTWO", "country": "US" },
+        { "id": "unity", "name": "Unity", "ticker": "U", "country": "US" }
+      ]
+    }
+  ]
+}
