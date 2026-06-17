@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Chaîne de valeur IA</title>
+
+<!-- Ajout à l'écran d'accueil iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="IA Map" />
+<link rel="apple-touch-icon" href="icon-180.png" />
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#11151c" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg-deep:#11151c;
+    --bg-panel:#171c25;
+    --bg-card:#1b212b;
+    --line-grid:#242b36;
+    --text-primary:#e8ebef;
+    --text-muted:#8b94a3;
+    --accent-amber:#d98e3f;
+    --positive:#5fae7a;
+    --negative:#c2584f;
+    --radius:10px;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg-deep);
+    background-image:
+      linear-gradient(var(--line-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-grid) 1px, transparent 1px);
+    background-size:22px 22px;
+    color:var(--text-primary);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:60px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; animation:none !important;}
+  }
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(17,21,28,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line-grid);
+    padding:env(safe-area-inset-top,0) 18px 14px 18px;
+    padding-top:max(env(safe-area-inset-top,0px), 18px);
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent-amber);
+    margin:0 0 4px 0;
+  }
+
+  h1{
+    font-size:21px;
+    font-weight:700;
+    margin:0 0 10px 0;
+    letter-spacing:-0.01em;
+  }
+
+  .meta-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+
+  .updated{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--text-muted);
+  }
+
+  .toggle-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.02em;
+    background:var(--bg-panel);
+    color:var(--text-primary);
+    border:1px solid var(--line-grid);
+    border-radius:20px;
+    padding:8px 14px;
+    cursor:pointer;
+    transition:border-color 0.15s ease, transform 0.1s ease;
+  }
+  .toggle-btn:active{transform:scale(0.97);}
+  .toggle-btn.active{
+    border-color:var(--accent-amber);
+    color:var(--accent-amber);
+  }
+
+  main{padding:18px;}
+
+  .stage{
+    margin-bottom:28px;
+    position:relative;
+  }
+
+  .stage + .stage::before{
+    content:"";
+    position:absolute;
+    top:-16px;
+    left:14px;
+    width:1px;
+    height:14px;
+    background:repeating-linear-gradient(to bottom, var(--accent-amber) 0 3px, transparent 3px 6px);
+  }
+
+  .stage-header{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    margin-bottom:10px;
+  }
+
+  .stage-index{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--accent-amber);
+    border:1px solid var(--accent-amber);
+    border-radius:50%;
+    width:20px;
+    height:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+
+  .stage-title{
+    font-size:14px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--text-primary);
+  }
+
+  .stage-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  @media (min-width:640px){
+    .stage-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (min-width:980px){
+    .stage-grid{grid-template-columns:repeat(3,1fr);}
+  }
+
+  .card{
+    background:var(--bg-card);
+    border:1px solid var(--line-grid);
+    border-left:3px solid var(--line-grid);
+    border-radius:var(--radius);
+    padding:11px 13px;
+    transition:transform 0.12s ease, border-color 0.12s ease;
+  }
+  .card:hover{transform:translateY(-1px);}
+
+  .card.bottleneck{border-left-color:var(--accent-amber);}
+  .card.second_order{border-left-style:dashed;}
+  .card.downstream{border-left-color:var(--positive);}
+
+  .card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:8px;
+  }
+
+  .card-name{
+    font-size:13.5px;
+    font-weight:600;
+    line-height:1.25;
+  }
+
+  .card-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--text-muted);
+    white-space:nowrap;
+    margin-top:2px;
+  }
+
+  .card-note{
+    font-size:11px;
+    color:var(--text-muted);
+    margin-top:4px;
+    line-height:1.35;
+  }
+
+  .card-quote{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-top:8px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  .card-price{
+    font-size:13px;
+    color:var(--text-primary);
+  }
+
+  .card-change{
+    font-size:13px;
+    font-weight:600;
+    padding:2px 7px;
+    border-radius:6px;
+  }
+  .card-change.up{color:var(--positive); background:rgba(95,174,122,0.12);}
+  .card-change.down{color:var(--negative); background:rgba(194,88,79,0.12);}
+  .card-change.flat{color:var(--text-muted);}
+
+  .unlisted{
+    font-size:11.5px;
+    font-style:italic;
+    color:var(--text-muted);
+    margin-top:8px;
+  }
+
+  #level2-zone{display:none;}
+  #level2-zone.visible{display:block;}
+
+  .section-divider{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent-amber);
+    text-align:center;
+    margin:8px 0 22px 0;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .section-divider::before, .section-divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line-grid);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Chaîne de valeur</p>
+  <h1>Acteurs de l'IA</h1>
+  <div class="meta-row">
+    <span class="updated" id="updated-label">Chargement…</span>
+    <button class="toggle-btn" id="toggle-level2">+ Niveau 2</button>
+  </div>
+</header>
+
+<main>
+  <div id="level1-zone"></div>
+  <div id="level2-zone">
+    <p class="section-divider">Élargissement PEA</p>
+    <div id="level2-stages"></div>
+  </div>
+</main>
+
+<script>
+const STAGE_LABELS = {
+  design: "Conception & design",
+  architecture: "Architectures",
+  manufacturing: "Fabrication",
+  memory_assembly: "Mémoire & assemblage",
+  testing: "Test & intégration",
+  infrastructure: "Infrastructure & énergie",
+  downstream: "Cloud & services IA"
+};
+const STAGE_ORDER = ["design","architecture","manufacturing","memory_assembly","testing","infrastructure","downstream"];
+
+const STAGE2_LABELS = {
+  semi_conducteurs: "Semi-conducteurs",
+  photonique: "Photonique",
+  fabless: "Fabless",
+  equipement: "Équipement",
+  logiciel: "Logiciel",
+  cloud: "Cloud",
+  defense: "Défense",
+  etf: "ETF PEA"
+};
+const STAGE2_ORDER = ["semi_conducteurs","photonique","fabless","equipement","logiciel","cloud","defense","etf"];
+
+const ROLE_TAGS = {
+  bottleneck: "Goulot d'étranglement",
+  second_order: "Fournisseur 2nd rang",
+  downstream: "Aval",
+  standard: ""
+};
+
+function fmtUpdated(iso){
+  if(!iso) return "Pas encore mis à jour";
+  const d = new Date(iso);
+  return "Mis à jour le " + d.toLocaleDateString('fr-FR', {day:'2-digit', month:'2-digit'}) + " à " + d.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+}
+
+function quoteBlock(quote){
+  if(!quote || !quote.available){
+    return '<p class="unlisted">Non cotée</p>';
+  }
+  const sign = quote.changePct > 0 ? "+" : "";
+  const cls = quote.changePct > 0.05 ? "up" : (quote.changePct < -0.05 ? "down" : "flat");
+  return `<div class="card-quote">
+    <span class="card-price">${quote.price} ${quote.currency || ''}</span>
+    <span class="card-change ${cls}">${sign}${quote.changePct}%</span>
+  </div>`;
+}
+
+function card(entry, quotes){
+  const roleClass = entry.role || "";
+  const tag = entry.role ? (ROLE_TAGS[entry.role] || "") : "";
+  return `<div class="card ${roleClass}">
+    <div class="card-top">
+      <span class="card-name">${entry.name}</span>
+      ${tag ? `<span class="card-tag">${tag}</span>` : ""}
+    </div>
+    ${entry.note ? `<p class="card-note">${entry.note}</p>` : ""}
+    ${quoteBlock(quotes[entry.id])}
+  </div>`;
+}
+
+function renderStages(entries, quotes, order, labels, container){
+  container.innerHTML = "";
+  order.forEach((stageKey, idx) => {
+    const stageEntries = entries.filter(e => e.stage === stageKey);
+    if(stageEntries.length === 0) return;
+    const section = document.createElement("div");
+    section.className = "stage";
+    section.innerHTML = `
+      <div class="stage-header">
+        <span class="stage-index">${idx+1}</span>
+        <span class="stage-title">${labels[stageKey]}</span>
+      </div>
+      <div class="stage-grid">
+        ${stageEntries.map(e => card(e, quotes)).join("")}
+      </div>
+    `;
+    container.appendChild(section);
+  });
+}
+
+async function init(){
+  try{
+    const [tickersRes, pricesRes] = await Promise.all([
+      fetch('data/tickers.json'),
+      fetch('data/prices.json')
+    ]);
+    const tickers = await tickersRes.json();
+    const pricesData = await pricesRes.json();
+    const quotes = pricesData.quotes || {};
+
+    document.getElementById('updated-label').textContent = fmtUpdated(pricesData.updatedAt);
+
+    const level1 = tickers.filter(t => t.level === 1);
+    const level2 = tickers.filter(t => t.level === 2);
+
+    renderStages(level1, quotes, STAGE_ORDER, STAGE_LABELS, document.getElementById('level1-zone'));
+    renderStages(level2, quotes, STAGE2_ORDER, STAGE2_LABELS, document.getElementById('level2-stages'));
+  }catch(err){
+    document.getElementById('level1-zone').innerHTML = '<p class="unlisted">Erreur de chargement des données : ' + err.message + '</p>';
+  }
+}
+
+document.getElementById('toggle-level2').addEventListener('click', (e) => {
+  const zone = document.getElementById('level2-zone');
+  const btn = e.currentTarget;
+  const isVisible = zone.classList.toggle('visible');
+  btn.classList.toggle('active', isVisible);
+  btn.textContent = isVisible ? "– Niveau 2" : "+ Niveau 2";
+});
+
+init();
+</script>
+</body>
+</html>
