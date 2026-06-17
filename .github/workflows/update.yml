@@ -3,7 +3,17 @@ name: Mise à jour des cours IA
 on:
   schedule:
     - cron: "0 5 * * 1-5"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: "Quoi mettre à jour"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - level1
+          - level2
 
 permissions:
   contents: write
@@ -21,12 +31,12 @@ jobs:
           node-version: "20"
 
       - name: Récupérer les cours
-        run: node scripts/fetch-prices.mjs
+        run: node scripts/fetch-prices.mjs ${{ inputs.scope || 'all' }}
 
       - name: Commit et push si changement
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/prices.json
-          git diff --staged --quiet || git commit -m "Mise à jour automatique des cours"
+          git diff --staged --quiet || git commit -m "Mise à jour automatique des cours (${{ inputs.scope || 'all' }})"
           git push
