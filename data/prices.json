@@ -17,9 +17,9 @@
     },
     "siemens_eda": {
       "available": true,
-      "price": 281.55,
-      "previousClose": 273.45,
-      "changePct": 2.96,
+      "price": 281.45,
+      "previousClose": 284.1,
+      "changePct": -0.93,
       "currency": "EUR"
     },
     "arm": {
@@ -56,16 +56,16 @@
     },
     "nikon": {
       "available": true,
-      "price": 2271,
-      "previousClose": 2221,
-      "changePct": 2.25,
+      "price": 2238,
+      "previousClose": 2271,
+      "changePct": -1.45,
       "currency": "JPY"
     },
     "canon": {
       "available": true,
-      "price": 4260,
-      "previousClose": 4204,
-      "changePct": 1.33,
+      "price": 4338,
+      "previousClose": 4260,
+      "changePct": 1.83,
       "currency": "JPY"
     },
     "tsmc": {
@@ -99,30 +99,30 @@
     },
     "shinetsu": {
       "available": true,
-      "price": 6958,
-      "previousClose": 7024,
-      "changePct": -0.94,
+      "price": 7415,
+      "previousClose": 6958,
+      "changePct": 6.57,
       "currency": "JPY"
     },
     "sumco": {
       "available": true,
-      "price": 5094,
-      "previousClose": 4577,
-      "changePct": 11.3,
+      "price": 5171,
+      "previousClose": 5094,
+      "changePct": 1.51,
       "currency": "JPY"
     },
     "siltronic": {
       "available": true,
-      "price": 85.95,
-      "previousClose": 87.45,
-      "changePct": -1.72,
+      "price": 91.4,
+      "previousClose": 92.5,
+      "changePct": -1.19,
       "currency": "EUR"
     },
     "tok": {
       "available": true,
-      "price": 10855,
-      "previousClose": 10640,
-      "changePct": 2.02,
+      "price": 10470,
+      "previousClose": 10855,
+      "changePct": -3.55,
       "currency": "JPY"
     },
     "jsr": {
@@ -131,9 +131,9 @@
     },
     "skhynix": {
       "available": true,
-      "price": 2425000,
-      "previousClose": 2187000,
-      "changePct": 10.88,
+      "price": 2343000,
+      "previousClose": 2425000,
+      "changePct": -3.38,
       "currency": "KRW"
     },
     "micron": {
@@ -145,16 +145,16 @@
     },
     "unimicron": {
       "available": true,
-      "price": 969,
-      "previousClose": 979,
-      "changePct": -1.02,
+      "price": 917,
+      "previousClose": 969,
+      "changePct": -5.37,
       "currency": "TWD"
     },
     "ibiden": {
       "available": true,
-      "price": 23345,
-      "previousClose": 23420,
-      "changePct": -0.32,
+      "price": 21390,
+      "previousClose": 23345,
+      "changePct": -8.37,
       "currency": "JPY"
     },
     "shinko": {
@@ -163,65 +163,65 @@
     },
     "advantest": {
       "available": true,
-      "price": 29345,
-      "previousClose": 28815,
-      "changePct": 1.84,
+      "price": 29565,
+      "previousClose": 29345,
+      "changePct": 0.75,
       "currency": "JPY"
     },
     "technoprobe": {
       "available": true,
-      "price": 33.82,
-      "previousClose": 33.06,
-      "changePct": 2.3,
+      "price": 32.28,
+      "previousClose": 33.46,
+      "changePct": -3.53,
       "currency": "EUR"
     },
     "foxconn": {
       "available": true,
-      "price": 240.5,
-      "previousClose": 239,
-      "changePct": 0.63,
+      "price": 242,
+      "previousClose": 240.5,
+      "changePct": 0.62,
       "currency": "TWD"
     },
     "quanta": {
       "available": true,
-      "price": 377,
-      "previousClose": 369,
-      "changePct": 2.17,
+      "price": 378,
+      "previousClose": 377,
+      "changePct": 0.27,
       "currency": "TWD"
     },
     "wistron": {
       "available": true,
-      "price": 159,
-      "previousClose": 158.5,
-      "changePct": 0.32,
+      "price": 158,
+      "previousClose": 159,
+      "changePct": -0.63,
       "currency": "TWD"
     },
     "schneider": {
       "available": true,
-      "price": 277.7,
-      "previousClose": 275.9,
-      "changePct": 0.65,
+      "price": 275.85,
+      "previousClose": 280.1,
+      "changePct": -1.52,
       "currency": "EUR"
     },
     "siemensenergy": {
       "available": true,
-      "price": 167.2,
-      "previousClose": 163.34,
-      "changePct": 2.36,
+      "price": 165.82,
+      "previousClose": 168.12,
+      "changePct": -1.37,
       "currency": "EUR"
     },
     "infineon": {
       "available": true,
-      "price": 77.43,
-      "previousClose": 77.9,
-      "changePct": -0.6,
+      "price": 75.21,
+      "previousClose": 77.38,
+      "changePct": -2.8,
       "currency": "EUR"
     },
     "asmi": {
       "available": true,
-      "price": 958.4,
-      "previousClose": 937.2,
-      "changePct": 2.26,
+      "price": 930.4,
+      "previousClose": 975.6,
+      "changePct": -4.63,
       "currency": "EUR"
     },
     "soitec": {
@@ -247,9 +247,9 @@
     },
     "besi": {
       "available": true,
-      "price": 270.6,
-      "previousClose": 262,
-      "changePct": 3.28,
+      "price": 253,
+      "previousClose": 273.1,
+      "changePct": -7.36,
       "currency": "EUR"
     },
     "amazon": {
@@ -359,9 +359,9 @@
     },
     "sap": {
       "available": true,
-      "price": 139.72,
-      "previousClose": 140.88,
-      "changePct": -0.82,
+      "price": 142.54,
+      "previousClose": 139.64,
+      "changePct": 2.08,
       "currency": "EUR"
     },
     "dassault": {
@@ -518,9 +518,9 @@
     },
     "samsung_foundry": {
       "available": true,
-      "price": 309500,
-      "previousClose": 286000,
-      "changePct": 8.22,
+      "price": 318000,
+      "previousClose": 309500,
+      "changePct": 2.75,
       "currency": "KRW"
     },
     "intel_foundry": {
@@ -551,9 +551,9 @@
     },
     "samsung_hbm": {
       "available": true,
-      "price": 309500,
-      "previousClose": 286000,
-      "changePct": 8.22,
+      "price": 318000,
+      "previousClose": 309500,
+      "changePct": 2.75,
       "currency": "KRW"
     },
     "wdc": {
@@ -1065,6 +1065,6 @@
       "currency": "USD"
     }
   },
-  "updatedAtLevel1": "2026-07-03T08:09:36.470Z",
-  "updatedAtLevel2": "2026-07-03T08:09:36.470Z"
+  "updatedAtLevel1": "2026-07-06T09:00:11.857Z",
+  "updatedAtLevel2": "2026-07-06T09:00:11.857Z"
 }
