@@ -3,30 +3,30 @@
   "quotes": {
     "synopsys": {
       "available": true,
-      "price": 462.95,
-      "previousClose": 462.88,
-      "changePct": 0.02,
+      "price": 440.31,
+      "previousClose": 462.95,
+      "changePct": -4.89,
       "currency": "USD"
     },
     "cadence": {
       "available": true,
-      "price": 329.52,
-      "previousClose": 323.75,
-      "changePct": 1.78,
+      "price": 311.43,
+      "previousClose": 329.52,
+      "changePct": -5.49,
       "currency": "USD"
     },
     "siemens_eda": {
       "available": true,
-      "price": 275.45,
-      "previousClose": 275.65,
-      "changePct": -0.07,
+      "price": 265.9,
+      "previousClose": 273.25,
+      "changePct": -2.69,
       "currency": "EUR"
     },
     "arm": {
       "available": true,
-      "price": 191.8,
-      "previousClose": 202.49,
-      "changePct": -5.28,
+      "price": 166.72,
+      "previousClose": 191.8,
+      "changePct": -13.08,
       "currency": "USD"
     },
     "riscv": {
@@ -35,44 +35,44 @@
     },
     "nvidia": {
       "available": true,
-      "price": 200.13,
-      "previousClose": 206.69,
-      "changePct": -3.17,
+      "price": 181.6,
+      "previousClose": 200.13,
+      "changePct": -9.26,
       "currency": "USD"
     },
     "amd": {
       "available": true,
-      "price": 488.78,
-      "previousClose": 483.9,
-      "changePct": 1.01,
+      "price": 404.4,
+      "previousClose": 488.78,
+      "changePct": -17.26,
       "currency": "USD"
     },
     "asml": {
       "available": true,
-      "price": 1496.3,
-      "previousClose": 1552.14,
-      "changePct": -3.6,
+      "price": 1356.65,
+      "previousClose": 1496.3,
+      "changePct": -9.33,
       "currency": "USD"
     },
     "nikon": {
       "available": true,
-      "price": 1651.5,
-      "previousClose": 1597.5,
-      "changePct": 3.38,
+      "price": 1517.5,
+      "previousClose": 1651.5,
+      "changePct": -8.11,
       "currency": "JPY"
     },
     "canon": {
       "available": true,
-      "price": 4879,
-      "previousClose": 4643,
-      "changePct": 5.08,
+      "price": 4645,
+      "previousClose": 4879,
+      "changePct": -4.8,
       "currency": "JPY"
     },
     "tsmc": {
       "available": true,
-      "price": 395.75,
-      "previousClose": 404.8,
-      "changePct": -2.24,
+      "price": 353.1,
+      "previousClose": 395.75,
+      "changePct": -10.78,
       "currency": "USD"
     },
     "samsung": {
@@ -99,30 +99,30 @@
     },
     "shinetsu": {
       "available": true,
-      "price": 5693,
-      "previousClose": 5799,
-      "changePct": -1.83,
+      "price": 5312,
+      "previousClose": 5693,
+      "changePct": -6.69,
       "currency": "JPY"
     },
     "sumco": {
       "available": true,
-      "price": 1911.5,
-      "previousClose": 2218.5,
-      "changePct": -13.84,
+      "price": 1784.5,
+      "previousClose": 1911.5,
+      "changePct": -6.64,
       "currency": "JPY"
     },
     "siltronic": {
       "available": true,
-      "price": 53.9,
-      "previousClose": 57.25,
-      "changePct": -5.85,
+      "price": 51.5,
+      "previousClose": 50.2,
+      "changePct": 2.59,
       "currency": "EUR"
     },
     "tok": {
       "available": true,
-      "price": 6852,
-      "previousClose": 7616,
-      "changePct": -10.03,
+      "price": 6404,
+      "previousClose": 6852,
+      "changePct": -6.54,
       "currency": "JPY"
     },
     "jsr": {
@@ -131,30 +131,30 @@
     },
     "skhynix": {
       "available": true,
-      "price": 1264000,
-      "previousClose": 1396000,
-      "changePct": -9.46,
+      "price": 1132000,
+      "previousClose": 1264000,
+      "changePct": -10.44,
       "currency": "KRW"
     },
     "micron": {
       "available": true,
-      "price": 795.23,
-      "previousClose": 855.1,
-      "changePct": -7,
+      "price": 656.39,
+      "previousClose": 795.23,
+      "changePct": -17.46,
       "currency": "USD"
     },
     "unimicron": {
       "available": true,
-      "price": 800,
-      "previousClose": 888,
-      "changePct": -9.91,
+      "price": 727,
+      "previousClose": 800,
+      "changePct": -9.13,
       "currency": "TWD"
     },
     "ibiden": {
       "available": true,
-      "price": 6726,
-      "previousClose": 8037,
-      "changePct": -16.31,
+      "price": 6147,
+      "previousClose": 6726,
+      "changePct": -8.61,
       "currency": "JPY"
     },
     "shinko": {
@@ -163,65 +163,65 @@
     },
     "advantest": {
       "available": true,
-      "price": 29485,
-      "previousClose": 34570,
-      "changePct": -14.71,
+      "price": 28015,
+      "previousClose": 29485,
+      "changePct": -4.99,
       "currency": "JPY"
     },
     "technoprobe": {
       "available": true,
-      "price": 21.9,
-      "previousClose": 22.62,
-      "changePct": -3.18,
+      "price": 21.06,
+      "previousClose": 20.52,
+      "changePct": 2.63,
       "currency": "EUR"
     },
     "foxconn": {
       "available": true,
-      "price": 235,
-      "previousClose": 240,
-      "changePct": -2.08,
+      "price": 224.5,
+      "previousClose": 235,
+      "changePct": -4.47,
       "currency": "TWD"
     },
     "quanta": {
       "available": true,
-      "price": 300,
-      "previousClose": 302.5,
-      "changePct": -0.83,
+      "price": 290.5,
+      "previousClose": 300,
+      "changePct": -3.17,
       "currency": "TWD"
     },
     "wistron": {
       "available": true,
-      "price": 168.5,
-      "previousClose": 176,
-      "changePct": -4.26,
+      "price": 160,
+      "previousClose": 168.5,
+      "changePct": -5.04,
       "currency": "TWD"
     },
     "schneider": {
       "available": true,
-      "price": 233.75,
-      "previousClose": 231.55,
-      "changePct": 0.95,
+      "price": 227.15,
+      "previousClose": 227.85,
+      "changePct": -0.31,
       "currency": "EUR"
     },
     "siemensenergy": {
       "available": true,
-      "price": 120.08,
-      "previousClose": 119.46,
-      "changePct": 0.52,
+      "price": 116.32,
+      "previousClose": 113.84,
+      "changePct": 2.18,
       "currency": "EUR"
     },
     "infineon": {
       "available": true,
-      "price": 48.8,
-      "previousClose": 50.24,
-      "changePct": -2.88,
+      "price": 46.91,
+      "previousClose": 45.95,
+      "changePct": 2.1,
       "currency": "EUR"
     },
     "asmi": {
       "available": true,
-      "price": 667.2,
-      "previousClose": 683.6,
-      "changePct": -2.4,
+      "price": 658.2,
+      "previousClose": 635.8,
+      "changePct": 3.52,
       "currency": "EUR"
     },
     "soitec": {
@@ -247,51 +247,51 @@
     },
     "besi": {
       "available": true,
-      "price": 147.85,
-      "previousClose": 152,
-      "changePct": -2.73,
+      "price": 145,
+      "previousClose": 140.9,
+      "changePct": 2.91,
       "currency": "EUR"
     },
     "amazon": {
       "available": true,
-      "price": 266.03,
-      "previousClose": 250.69,
-      "changePct": 6.12,
+      "price": 260.21,
+      "previousClose": 266.03,
+      "changePct": -2.19,
       "currency": "USD"
     },
     "google": {
       "available": true,
-      "price": 288.93,
-      "previousClose": 280.03,
-      "changePct": 3.18,
+      "price": 282.57,
+      "previousClose": 288.93,
+      "changePct": -2.2,
       "currency": "USD"
     },
     "meta": {
       "available": true,
-      "price": 630,
-      "previousClose": 621.03,
-      "changePct": 1.44,
+      "price": 605.08,
+      "previousClose": 630,
+      "changePct": -3.96,
       "currency": "USD"
     },
     "microsoft": {
       "available": true,
-      "price": 555.8,
-      "previousClose": 520.99,
-      "changePct": 6.68,
+      "price": 535.93,
+      "previousClose": 555.8,
+      "changePct": -3.58,
       "currency": "USD"
     },
     "oracle": {
       "available": true,
-      "price": 123.73,
-      "previousClose": 126.19,
-      "changePct": -1.95,
+      "price": 115.16,
+      "previousClose": 123.73,
+      "changePct": -6.93,
       "currency": "USD"
     },
     "coreweave": {
       "available": true,
-      "price": 48.42,
-      "previousClose": 53.74,
-      "changePct": -9.9,
+      "price": 43.66,
+      "previousClose": 48.42,
+      "changePct": -9.83,
       "currency": "USD"
     },
     "melexis": {
@@ -359,9 +359,9 @@
     },
     "sap": {
       "available": true,
-      "price": 219.1,
-      "previousClose": 214.3,
-      "changePct": 2.24,
+      "price": 210.2,
+      "previousClose": 215.75,
+      "changePct": -2.57,
       "currency": "EUR"
     },
     "dassault": {
@@ -455,93 +455,93 @@
     },
     "broadcom": {
       "available": true,
-      "price": 325.48,
-      "previousClose": 332.13,
-      "changePct": -2,
+      "price": 291.53,
+      "previousClose": 325.48,
+      "changePct": -10.43,
       "currency": "USD"
     },
     "marvell": {
       "available": true,
-      "price": 159.8,
-      "previousClose": 171.97,
-      "changePct": -7.08,
+      "price": 133.55,
+      "previousClose": 159.8,
+      "changePct": -16.43,
       "currency": "USD"
     },
     "intel_design": {
       "available": true,
-      "price": 58.27,
-      "previousClose": 60.55,
-      "changePct": -3.77,
+      "price": 52.25,
+      "previousClose": 58.27,
+      "changePct": -10.33,
       "currency": "USD"
     },
     "qualcomm": {
       "available": true,
-      "price": 173.19,
-      "previousClose": 164.43,
-      "changePct": 5.33,
+      "price": 156.75,
+      "previousClose": 173.19,
+      "changePct": -9.49,
       "currency": "USD"
     },
     "mpwr": {
       "available": true,
-      "price": 1261.08,
-      "previousClose": 1328.3,
-      "changePct": -5.06,
+      "price": 1131.43,
+      "previousClose": 1261.08,
+      "changePct": -10.28,
       "currency": "USD"
     },
     "amat": {
       "available": true,
-      "price": 369.4,
-      "previousClose": 381.92,
-      "changePct": -3.28,
+      "price": 319.25,
+      "previousClose": 369.4,
+      "changePct": -13.58,
       "currency": "USD"
     },
     "lrcx": {
       "available": true,
-      "price": 221.43,
-      "previousClose": 230.72,
-      "changePct": -4.03,
+      "price": 185.2,
+      "previousClose": 221.43,
+      "changePct": -16.36,
       "currency": "USD"
     },
     "klac": {
       "available": true,
-      "price": 149.79,
-      "previousClose": 156.2,
-      "changePct": -4.1,
+      "price": 129.8,
+      "previousClose": 149.79,
+      "changePct": -13.35,
       "currency": "USD"
     },
     "onto": {
       "available": true,
-      "price": 184.82,
-      "previousClose": 202.39,
-      "changePct": -8.68,
+      "price": 155.99,
+      "previousClose": 184.82,
+      "changePct": -15.6,
       "currency": "USD"
     },
     "samsung_foundry": {
       "available": true,
-      "price": 201500,
-      "previousClose": 218000,
-      "changePct": -7.57,
+      "price": 188700,
+      "previousClose": 201500,
+      "changePct": -6.35,
       "currency": "KRW"
     },
     "intel_foundry": {
       "available": true,
-      "price": 58.27,
-      "previousClose": 60.55,
-      "changePct": -3.77,
+      "price": 52.25,
+      "previousClose": 58.27,
+      "changePct": -10.33,
       "currency": "USD"
     },
     "globalfoundries": {
       "available": true,
-      "price": 40.34,
-      "previousClose": 42.89,
-      "changePct": -5.95,
+      "price": 36.36,
+      "previousClose": 40.34,
+      "changePct": -9.87,
       "currency": "USD"
     },
     "umc": {
       "available": true,
-      "price": 16.06,
-      "previousClose": 16.4,
-      "changePct": -2.07,
+      "price": 13.38,
+      "previousClose": 16.06,
+      "changePct": -16.69,
       "currency": "USD"
     },
     "stmicro": {
@@ -551,142 +551,142 @@
     },
     "samsung_hbm": {
       "available": true,
-      "price": 201500,
-      "previousClose": 218000,
-      "changePct": -7.57,
+      "price": 188700,
+      "previousClose": 201500,
+      "changePct": -6.35,
       "currency": "KRW"
     },
     "wdc": {
       "available": true,
-      "price": 323.83,
-      "previousClose": 347.35,
-      "changePct": -6.77,
+      "price": 267.63,
+      "previousClose": 323.83,
+      "changePct": -17.35,
       "currency": "USD"
     },
     "stx": {
       "available": true,
-      "price": 557.06,
-      "previousClose": 606.38,
-      "changePct": -8.13,
+      "price": 466.53,
+      "previousClose": 557.06,
+      "changePct": -16.25,
       "currency": "USD"
     },
     "tsmc_cowos": {
       "available": true,
-      "price": 395.75,
-      "previousClose": 404.8,
-      "changePct": -2.24,
+      "price": 353.1,
+      "previousClose": 395.75,
+      "changePct": -10.78,
       "currency": "USD"
     },
     "ase": {
       "available": true,
-      "price": 37.51,
-      "previousClose": 39.05,
-      "changePct": -3.94,
+      "price": 29.72,
+      "previousClose": 37.51,
+      "changePct": -20.77,
       "currency": "USD"
     },
     "amkor": {
       "available": true,
-      "price": 35.66,
-      "previousClose": 37.62,
-      "changePct": -5.21,
+      "price": 30.49,
+      "previousClose": 35.66,
+      "changePct": -14.5,
       "currency": "USD"
     },
     "hpe": {
       "available": true,
-      "price": 50.09,
-      "previousClose": 53.1,
-      "changePct": -5.67,
+      "price": 44.16,
+      "previousClose": 50.09,
+      "changePct": -11.84,
       "currency": "USD"
     },
     "dell": {
       "available": true,
-      "price": 372.36,
-      "previousClose": 408.4,
-      "changePct": -8.82,
+      "price": 316.91,
+      "previousClose": 372.36,
+      "changePct": -14.89,
       "currency": "USD"
     },
     "smci": {
       "available": true,
-      "price": 29.6,
-      "previousClose": 31.39,
-      "changePct": -5.7,
+      "price": 27.08,
+      "previousClose": 29.6,
+      "changePct": -8.51,
       "currency": "USD"
     },
     "ibm": {
       "available": true,
-      "price": 254.32,
-      "previousClose": 250.04,
-      "changePct": 1.71,
+      "price": 247.11,
+      "previousClose": 254.32,
+      "changePct": -2.84,
       "currency": "USD"
     },
     "ntap": {
       "available": true,
-      "price": 187.67,
-      "previousClose": 190.78,
-      "changePct": -1.63,
+      "price": 169.38,
+      "previousClose": 187.67,
+      "changePct": -9.75,
       "currency": "USD"
     },
     "eaton": {
       "available": true,
-      "price": 353.08,
-      "previousClose": 391.7,
-      "changePct": -9.86,
+      "price": 327.02,
+      "previousClose": 353.08,
+      "changePct": -7.38,
       "currency": "USD"
     },
     "nextera": {
       "available": true,
-      "price": 88.45,
-      "previousClose": 84.33,
-      "changePct": 4.89,
+      "price": 88.25,
+      "previousClose": 88.45,
+      "changePct": -0.23,
       "currency": "USD"
     },
     "vistra": {
       "available": true,
-      "price": 120.29,
-      "previousClose": 139.59,
-      "changePct": -13.83,
+      "price": 112.89,
+      "previousClose": 120.29,
+      "changePct": -6.15,
       "currency": "USD"
     },
     "cameco": {
       "available": true,
-      "price": 71.68,
-      "previousClose": 72.56,
-      "changePct": -1.21,
+      "price": 68.33,
+      "previousClose": 71.68,
+      "changePct": -4.67,
       "currency": "USD"
     },
     "liqtech": {
       "available": true,
-      "price": 0.32,
-      "previousClose": 0.31,
-      "changePct": 1.61,
+      "price": 0.3,
+      "previousClose": 0.32,
+      "changePct": -6.25,
       "currency": "USD"
     },
     "gitlab": {
       "available": true,
-      "price": 52.37,
+      "price": 48.99,
       "previousClose": 52.37,
-      "changePct": 0,
+      "changePct": -6.45,
       "currency": "USD"
     },
     "snowflake": {
       "available": true,
-      "price": 290.6,
-      "previousClose": 295.04,
-      "changePct": -1.5,
+      "price": 269.54,
+      "previousClose": 290.6,
+      "changePct": -7.25,
       "currency": "USD"
     },
     "cisco": {
       "available": true,
-      "price": 103.61,
-      "previousClose": 102.97,
-      "changePct": 0.62,
+      "price": 95.72,
+      "previousClose": 103.61,
+      "changePct": -7.62,
       "currency": "USD"
     },
     "arista": {
       "available": true,
-      "price": 178.48,
-      "previousClose": 169.91,
-      "changePct": 5.04,
+      "price": 159.16,
+      "previousClose": 178.48,
+      "changePct": -10.82,
       "currency": "USD"
     },
     "infinera": {
@@ -696,23 +696,23 @@
     },
     "ciena": {
       "available": true,
-      "price": 272.24,
-      "previousClose": 300.08,
-      "changePct": -9.28,
+      "price": 230.81,
+      "previousClose": 272.24,
+      "changePct": -15.22,
       "currency": "USD"
     },
     "equinix": {
       "available": true,
-      "price": 1054.09,
-      "previousClose": 1014.4,
-      "changePct": 3.91,
+      "price": 997.35,
+      "previousClose": 1054.09,
+      "changePct": -5.38,
       "currency": "USD"
     },
     "digitalrealty": {
       "available": true,
-      "price": 184.88,
-      "previousClose": 180.25,
-      "changePct": 2.57,
+      "price": 174.67,
+      "previousClose": 184.88,
+      "changePct": -5.52,
       "currency": "USD"
     },
     "cyrusone": {
@@ -721,72 +721,72 @@
     },
     "ironmountain": {
       "available": true,
-      "price": 118.66,
-      "previousClose": 116.69,
-      "changePct": 1.69,
+      "price": 105.5,
+      "previousClose": 118.66,
+      "changePct": -11.09,
       "currency": "USD"
     },
     "vertiv": {
       "available": true,
-      "price": 205.55,
-      "previousClose": 235.97,
-      "changePct": -12.89,
+      "price": 176.73,
+      "previousClose": 205.55,
+      "changePct": -14.02,
       "currency": "USD"
     },
     "c3ai": {
       "available": true,
-      "price": 11.96,
-      "previousClose": 11.54,
-      "changePct": 3.64,
+      "price": 11.38,
+      "previousClose": 11.96,
+      "changePct": -4.85,
       "currency": "USD"
     },
     "bigbearai": {
       "available": true,
-      "price": 2.56,
-      "previousClose": 2.53,
-      "changePct": 1.19,
+      "price": 2.22,
+      "previousClose": 2.56,
+      "changePct": -13.28,
       "currency": "USD"
     },
     "palantir": {
       "available": true,
-      "price": 171.7,
-      "previousClose": 175.4,
-      "changePct": -2.11,
+      "price": 154.99,
+      "previousClose": 171.7,
+      "changePct": -9.73,
       "currency": "USD"
     },
     "soundhound": {
       "available": true,
-      "price": 4.32,
-      "previousClose": 4.12,
-      "changePct": 4.85,
+      "price": 4.26,
+      "previousClose": 4.32,
+      "changePct": -1.39,
       "currency": "USD"
     },
     "apple": {
       "available": true,
-      "price": 349.51,
-      "previousClose": 331.9,
-      "changePct": 5.31,
+      "price": 344.17,
+      "previousClose": 349.51,
+      "changePct": -1.53,
       "currency": "USD"
     },
     "mongodb": {
       "available": true,
-      "price": 328.38,
-      "previousClose": 335.37,
-      "changePct": -2.08,
+      "price": 304.59,
+      "previousClose": 328.38,
+      "changePct": -7.24,
       "currency": "USD"
     },
     "elastic": {
       "available": true,
-      "price": 89.68,
-      "previousClose": 90.47,
-      "changePct": -0.87,
+      "price": 84.2,
+      "previousClose": 89.68,
+      "changePct": -6.11,
       "currency": "USD"
     },
     "datadog": {
       "available": true,
-      "price": 188.72,
-      "previousClose": 220.52,
-      "changePct": -14.42,
+      "price": 174.6,
+      "previousClose": 188.72,
+      "changePct": -7.48,
       "currency": "USD"
     },
     "splunk": {
@@ -795,79 +795,79 @@
     },
     "veeva": {
       "available": true,
-      "price": 310.63,
-      "previousClose": 303.21,
-      "changePct": 2.45,
+      "price": 310.1,
+      "previousClose": 310.63,
+      "changePct": -0.17,
       "currency": "USD"
     },
     "crowdstrike": {
       "available": true,
-      "price": 241,
-      "previousClose": 244.68,
-      "changePct": -1.5,
+      "price": 217.2,
+      "previousClose": 241,
+      "changePct": -9.88,
       "currency": "USD"
     },
     "paloalto": {
       "available": true,
-      "price": 348.04,
-      "previousClose": 350.2,
-      "changePct": -0.62,
+      "price": 314.67,
+      "previousClose": 348.04,
+      "changePct": -9.59,
       "currency": "USD"
     },
     "sentinelone": {
       "available": true,
-      "price": 23.49,
-      "previousClose": 23.11,
-      "changePct": 1.64,
+      "price": 21.42,
+      "previousClose": 23.49,
+      "changePct": -8.81,
       "currency": "USD"
     },
     "zscaler": {
       "available": true,
-      "price": 224.44,
-      "previousClose": 225.09,
-      "changePct": -0.29,
+      "price": 203.88,
+      "previousClose": 224.44,
+      "changePct": -9.16,
       "currency": "USD"
     },
     "fortinet": {
       "available": true,
-      "price": 129.39,
-      "previousClose": 128.11,
-      "changePct": 1,
+      "price": 122.51,
+      "previousClose": 129.39,
+      "changePct": -5.32,
       "currency": "USD"
     },
     "intuitivesurgical": {
       "available": true,
-      "price": 482.1,
-      "previousClose": 440.75,
-      "changePct": 9.38,
+      "price": 468.52,
+      "previousClose": 482.1,
+      "changePct": -2.82,
       "currency": "USD"
     },
     "recursion": {
       "available": true,
-      "price": 3.88,
-      "previousClose": 3.68,
-      "changePct": 5.43,
+      "price": 3.5,
+      "previousClose": 3.88,
+      "changePct": -9.79,
       "currency": "USD"
     },
     "schrodinger": {
       "available": true,
-      "price": 28.52,
-      "previousClose": 27.18,
-      "changePct": 4.93,
+      "price": 28.77,
+      "previousClose": 28.52,
+      "changePct": 0.88,
       "currency": "USD"
     },
     "novocure": {
       "available": true,
-      "price": 14.61,
-      "previousClose": 13.43,
-      "changePct": 8.79,
+      "price": 13.55,
+      "previousClose": 14.61,
+      "changePct": -7.26,
       "currency": "USD"
     },
     "illumina": {
       "available": true,
-      "price": 226.54,
-      "previousClose": 238.21,
-      "changePct": -4.9,
+      "price": 208,
+      "previousClose": 226.54,
+      "changePct": -8.18,
       "currency": "USD"
     },
     "exscientia": {
@@ -876,51 +876,51 @@
     },
     "tesla": {
       "available": true,
-      "price": 385.19,
-      "previousClose": 398.5,
-      "changePct": -3.34,
+      "price": 343.69,
+      "previousClose": 385.19,
+      "changePct": -10.77,
       "currency": "USD"
     },
     "mobileye": {
       "available": true,
-      "price": 5.34,
-      "previousClose": 5.59,
-      "changePct": -4.47,
+      "price": 5.13,
+      "previousClose": 5.34,
+      "changePct": -3.93,
       "currency": "USD"
     },
     "luminar": {
       "available": true,
-      "price": 30.44,
-      "previousClose": 32.07,
-      "changePct": -5.08,
+      "price": 25.87,
+      "previousClose": 30.44,
+      "changePct": -15.01,
       "currency": "USD"
     },
     "ouster": {
       "available": true,
-      "price": 33.54,
-      "previousClose": 28.98,
-      "changePct": 15.73,
+      "price": 30.52,
+      "previousClose": 33.54,
+      "changePct": -9,
       "currency": "USD"
     },
     "fanuc": {
       "available": true,
-      "price": 17.98,
-      "previousClose": 17.71,
-      "changePct": 1.52,
+      "price": 16.8,
+      "previousClose": 17.98,
+      "changePct": -6.56,
       "currency": "USD"
     },
     "abb": {
       "available": true,
-      "price": 86.58,
-      "previousClose": 88.05,
-      "changePct": -1.67,
+      "price": 81.36,
+      "previousClose": 86.58,
+      "changePct": -6.03,
       "currency": "USD"
     },
     "rockwell": {
       "available": true,
-      "price": 443.88,
-      "previousClose": 446.38,
-      "changePct": -0.56,
+      "price": 381.05,
+      "previousClose": 443.88,
+      "changePct": -14.15,
       "currency": "USD"
     },
     "irobot": {
@@ -930,114 +930,114 @@
     },
     "teradyne": {
       "available": true,
-      "price": 250.99,
-      "previousClose": 269.35,
-      "changePct": -6.82,
+      "price": 212.74,
+      "previousClose": 250.99,
+      "changePct": -15.24,
       "currency": "USD"
     },
     "coinbase": {
       "available": true,
-      "price": 151.5,
-      "previousClose": 145.45,
-      "changePct": 4.16,
+      "price": 136.82,
+      "previousClose": 151.5,
+      "changePct": -9.69,
       "currency": "USD"
     },
     "robinhood": {
       "available": true,
-      "price": 87.41,
-      "previousClose": 85.68,
-      "changePct": 2.02,
+      "price": 78.39,
+      "previousClose": 87.41,
+      "changePct": -10.32,
       "currency": "USD"
     },
     "msci": {
       "available": true,
-      "price": 674.3,
-      "previousClose": 639.78,
-      "changePct": 5.4,
+      "price": 655.91,
+      "previousClose": 674.3,
+      "changePct": -2.73,
       "currency": "USD"
     },
     "ice": {
       "available": true,
-      "price": 174.92,
-      "previousClose": 170.93,
-      "changePct": 2.33,
+      "price": 174,
+      "previousClose": 174.92,
+      "changePct": -0.53,
       "currency": "USD"
     },
     "nasdaq": {
       "available": true,
-      "price": 109.7,
-      "previousClose": 106.97,
-      "changePct": 2.55,
+      "price": 106.83,
+      "previousClose": 109.7,
+      "changePct": -2.62,
       "currency": "USD"
     },
     "visa": {
       "available": true,
-      "price": 436.57,
-      "previousClose": 420.42,
-      "changePct": 3.84,
+      "price": 422.59,
+      "previousClose": 436.57,
+      "changePct": -3.2,
       "currency": "USD"
     },
     "lockheed": {
       "available": true,
-      "price": 595.04,
-      "previousClose": 639,
-      "changePct": -6.88,
+      "price": 576.16,
+      "previousClose": 595.04,
+      "changePct": -3.17,
       "currency": "USD"
     },
     "northrop": {
       "available": true,
-      "price": 525.35,
-      "previousClose": 550.3,
-      "changePct": -4.53,
+      "price": 525.25,
+      "previousClose": 525.35,
+      "changePct": -0.02,
       "currency": "USD"
     },
     "leidos": {
       "available": true,
-      "price": 135.68,
-      "previousClose": 134.72,
-      "changePct": 0.71,
+      "price": 135.81,
+      "previousClose": 135.68,
+      "changePct": 0.1,
       "currency": "USD"
     },
     "boozallen": {
       "available": true,
-      "price": 88.3,
-      "previousClose": 87.02,
-      "changePct": 1.47,
+      "price": 89.32,
+      "previousClose": 88.3,
+      "changePct": 1.16,
       "currency": "USD"
     },
     "salesforce": {
       "available": true,
-      "price": 227.11,
-      "previousClose": 222.2,
-      "changePct": 2.21,
+      "price": 222.41,
+      "previousClose": 227.11,
+      "changePct": -2.07,
       "currency": "USD"
     },
     "servicenow": {
       "available": true,
-      "price": 108.81,
-      "previousClose": 109.16,
-      "changePct": -0.32,
+      "price": 102.36,
+      "previousClose": 108.81,
+      "changePct": -5.93,
       "currency": "USD"
     },
     "workday": {
       "available": true,
-      "price": 201.84,
-      "previousClose": 197.94,
-      "changePct": 1.97,
+      "price": 200.17,
+      "previousClose": 201.84,
+      "changePct": -0.83,
       "currency": "USD"
     },
     "adobe": {
       "available": true,
-      "price": 248.48,
-      "previousClose": 246.14,
-      "changePct": 0.95,
+      "price": 246.44,
+      "previousClose": 248.48,
+      "changePct": -0.82,
       "currency": "USD"
     },
     "intuit": {
       "available": true,
-      "price": 356.64,
-      "previousClose": 344.72,
-      "changePct": 3.46,
+      "price": 354.84,
+      "previousClose": 356.64,
+      "changePct": -0.5,
       "currency": "USD"
     },
     "verint": {
@@ -1047,26 +1047,26 @@
     },
     "nice": {
       "available": true,
-      "price": 99.59,
-      "previousClose": 106.27,
-      "changePct": -6.29,
+      "price": 96,
+      "previousClose": 99.59,
+      "changePct": -3.6,
       "currency": "USD"
     },
     "taketwo": {
       "available": true,
-      "price": 208.9,
-      "previousClose": 194.99,
-      "changePct": 7.13,
+      "price": 213.36,
+      "previousClose": 208.9,
+      "changePct": 2.13,
       "currency": "USD"
     },
     "unity": {
       "available": true,
-      "price": 42.46,
-      "previousClose": 40.48,
-      "changePct": 4.89,
+      "price": 48.8,
+      "previousClose": 42.46,
+      "changePct": 14.93,
       "currency": "USD"
     }
   },
-  "updatedAtLevel1": "2026-11-05T12:57:06.543Z",
-  "updatedAtLevel2": "2026-11-05T12:57:06.543Z"
+  "updatedAtLevel1": "2026-11-06T12:44:16.527Z",
+  "updatedAtLevel2": "2026-11-06T12:44:16.527Z"
 }
